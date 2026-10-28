@@ -1,6 +1,15 @@
 # ConcursoMusical
 
-This template should help get you started developing with Vue 3 in Vite.
+> [!important]
+>
+> El propósito final de este repositorio es crear una SPA con VUE 3, usando librería de sonido de `Howler.js` para crear un concurso musical.
+
+## Stack 
+
+- VUE 3.5
+- HOWLER.JS
+- TAILWIND CSS
+- JSON --> Persistencia de datos
 
 ## Recommended IDE Setup
 
