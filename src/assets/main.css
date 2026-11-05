@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'BBH Bartle';
+  src: url('/fonts/BBHBartle-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BBH Bogle';
+  src: url('/fonts/BBHBogle-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Beiruti';
+  src: url('/fonts/Beiruti-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Beiruti';
+  src: url('/fonts/Beiruti-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Beiruti';
+  src: url('/fonts/Beiruti-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Colores (Figma: riverland/*) */
+  --color-verde-primario: rgba(117, 251, 77, 1);
+  --color-magenta-secundario: rgba(234, 51, 214, 1);
+  --color-morado-terciario: rgba(128, 61, 236, 1);
+  --color-verde-oscuro: rgba(77, 166, 51, 1);
+  --color-blanco: rgba(255, 255, 255, 1);
+  --color-negro: rgba(0, 0, 0, 1);
+  /* Neutros usados en el prototipo */
+  --color-gris-texto: #9a9a9a;
+  --color-gris-borde: #2e2e2e;
+
+  /* Familias */
+  --font-titulo: 'BBH Bartle', 'Beiruti', sans-serif;
+  --font-subtitulo: 'BBH Bogle', 'Beiruti', sans-serif;
+  --font-cuerpo: 'Beiruti', sans-serif;
+
+  /* Tamaños: tamaño, interlineado y tracking de cada estilo de Figma */
+  --text-display: 60px;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: 0.02em;
+
+  --text-h1: 44px;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: 0.02em;
+
+  --text-h2: 32px;
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: 0.02em;
+
+  --text-h3: 24px;
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: 0.02em;
+
+  --text-h4: 20px;
+  --text-h4--line-height: 1.2;
+  --text-h4--letter-spacing: 0.01em;
+
+  --text-titular: 44px;
+  --text-titular--line-height: 1.1;
+  --text-titular--letter-spacing: 0.02em;
+
+  --text-lead: 20px;
+  --text-lead--line-height: 1.4;
+
+  --text-lead-strong: 24px;
+  --text-lead-strong--line-height: 1.3;
+
+  --text-cuerpo: 16px;
+  --text-cuerpo--line-height: 1.4;
+
+  --text-boton: 14px;
+  --text-boton--line-height: 1.1;
+  --text-boton--letter-spacing: 0.04em;
+}
+
+/* Estilos globales de la página */
+@layer base {
+  body {
+    @apply bg-negro text-blanco font-cuerpo font-light text-cuerpo;
+  }
+}
