@@ -1,5 +1,6 @@
 <script setup>
 import LeaderboardEmpty from '@/components/leaderboard/LeaderboardEmpty.vue'
+import LeaderboardList from '@/components/leaderboard/LeaderboardList.vue'
 import { onMounted, ref } from 'vue'
 
 const ranking = ref([])
@@ -23,6 +24,7 @@ onMounted(async () => {
   <section class="leaderboard">
     <h1 v-if="cargando">Cargando...</h1>
     <LeaderboardEmpty v-else-if="ranking.length < 1"/>
+    <LeaderboardList :entradas="ranking" :jugadores="ranking.length"/>
   </section>
 </template>
 
@@ -30,7 +32,7 @@ onMounted(async () => {
 @reference "../assets/main.css";
 
 .leaderboard {
-  @apply min-w-screen min-h-full flex flex-col justify-center items-center;
+  @apply min-w-screen min-h-full flex flex-col justify-center items-center py-14;
 }
 
 h1 {

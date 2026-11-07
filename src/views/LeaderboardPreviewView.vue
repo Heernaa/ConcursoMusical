@@ -13,10 +13,6 @@ const ENTRADAS_DEMO = [
   { nombre: 'DJ_LUNA', aciertos: 9, tiempo: 38, puntos: 8450 },
   { nombre: 'TRAPQUEEN', aciertos: 8, tiempo: 41, puntos: 7980 },
   { nombre: 'ROCKOLA', aciertos: 8, tiempo: 44, puntos: 7610 },
-  { nombre: 'VINILO_X', aciertos: 7, tiempo: 39, puntos: 7200 },
-  { nombre: 'SOFI.WAV', aciertos: 7, tiempo: 47, puntos: 6870 },
-  { nombre: 'EL_BAJISTA', aciertos: 6, tiempo: 42, puntos: 6330 },
-  { nombre: 'MIXTAPE', aciertos: 6, tiempo: 50, puntos: 5940 },
 ]
 
 const VARIANTES = [
@@ -53,7 +49,7 @@ const cantidad = ref(ENTRADAS_DEMO.length)
         :entradas="ENTRADAS_DEMO.slice(0, cantidad)"
         :jugadores="1284"
       />
-      <LeaderboardEmpty v-else cta-link="otro" />
+      <LeaderboardEmpty v-else cta-link="componentes" />
     </section>
 
     <section class="seccion">
@@ -68,9 +64,9 @@ const cantidad = ref(ENTRADAS_DEMO.length)
       <!-- BBH Bartle no tiene glifo para "Í": se evita la tilde en el título -->
       <h2 class="titulo">Sin puntuaciones</h2>
       <div class="fila">
-        <LeaderboardEmpty cta-link="otro" />
+        <LeaderboardEmpty cta-link="componentes" />
         <div class="fondo-gris">
-          <EmptyState cta-link="otro" />
+          <EmptyState cta-link="componentes" />
         </div>
         <div class="fondo-gris">
           <EmptyState titulo="Sin resultados" descripcion="Variante sin CTA" />

@@ -15,6 +15,12 @@ const props = defineProps({
   },
 })
 
+const MAX_ENTRADAS = 10
+
+const entradasOrdenadas = computed(() =>
+  [...props.entradas].sort((a, b) => b.puntos - a.puntos || a.tiempo - b.tiempo).slice(0,MAX_ENTRADAS),
+)
+
 const jugadoresTexto = computed(() => String(props.jugadores).replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
 </script>
 
@@ -43,7 +49,7 @@ const jugadoresTexto = computed(() => String(props.jugadores).replace(/\B(?=(\d{
 
     <ol class="entradas">
       <LeaderboardEntry
-        v-for="(entrada, i) in entradas"
+        v-for="(entrada, i) in entradasOrdenadas"
         :key="`${i}-${entrada.nombre}`"
         :posicion="i + 1"
         :nombre="entrada.nombre"

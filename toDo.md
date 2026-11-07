@@ -13,5 +13,6 @@
 ### Script 
 
 - [ ] Cargar JSON para leer información del ranking
-  - [x] **IF** JSON empty --> Cargar página **VACIA**
+  - [x] **IF** Cargando --> Cargando...
+  - [x] **ELSE-IF** JSON empty --> Cargar página **VACIA**
   - [ ] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 (v-for)
