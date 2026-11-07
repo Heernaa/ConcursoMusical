@@ -23,7 +23,7 @@ import NavLink from './NavLink.vue'
   @apply font-titulo text-h2 uppercase transition delay-50 duration-300 ease-in-out;
 }
 .titulo:hover {
-  @apply font-titulo text-h2 uppercase text-magenta-secundario;
+  @apply font-titulo text-h2 uppercase text-verde-primario;
 }
 .enlaces {
   @apply flex items-center gap-2;

@@ -4,7 +4,7 @@
 -->
 
 <script setup>
-const { linkTo } = defineProps({
+defineProps({
   linkTo: { type: String, requiered: true },
 })
 </script>

@@ -1,9 +1,20 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
+defineProps({
+  linkTo: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <!-- Estados: default · hover · active (pressed) · focus-visible · disabled -->
 <template>
-  <button type="button" class="primario">
+  <RouterLink :to="{ name: linkTo }" class="primario">
     <span class="etiqueta"><slot>Participar</slot></span>
     <span class="flecha">→</span>
-  </button>
+  </RouterLink>
 </template>
 
 <style scoped>

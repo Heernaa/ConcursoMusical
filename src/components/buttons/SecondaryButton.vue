@@ -1,9 +1,23 @@
 <!-- Estados: default · hover · active (pressed) · focus-visible · disabled. Slot #icono: flecha por defecto -->
+
+<script setup>
+import { RouterLink } from 'vue-router';
+
+
+defineProps({
+  linkTo: {
+    type: String,
+    required: true
+  }
+})
+
+</script>
+
 <template>
-  <button type="button" class="secundario">
-    <slot>Ver line up</slot>
+  <RouterLink :to="{ name: linkTo }" class="secundario">
+    <slot></slot>
     <slot name="icono"><span class="flecha">→</span></slot>
-  </button>
+  </RouterLink>
 </template>
 
 <style scoped>
@@ -26,6 +40,6 @@
 }
 
 .flecha {
-  @apply text-[16px] leading-none font-black;
+  @apply text-[16px] leading-none from-magenta-secundario;
 }
 </style>

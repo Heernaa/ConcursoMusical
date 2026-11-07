@@ -6,7 +6,7 @@
     </div>
     <h3 class="titulo"><slot>Escucha</slot></h3>
     <p class="descripcion">
-      <slot name="descripcion">Reproduce un fragmento de 5 segundos de una canción popular</slot>
+      <slot name="descripcion">Reproduce un fragmento de 5 segundos de una cancion popular</slot>
     </p>
   </article>
 </template>
@@ -27,6 +27,6 @@
   @apply text-center font-titulo text-h3 uppercase;
 }
 .descripcion {
-  @apply text-center font-cuerpo text-lead font-light opacity-85;
+  @apply text-center font-subtitulo text-lead font-light opacity-85;
 }
 </style>

@@ -27,6 +27,6 @@
   @apply text-center font-titulo text-h3 uppercase;
 }
 .descripcion {
-  @apply text-center font-cuerpo text-lead font-light opacity-85;
+  @apply text-center font-subtitulo text-lead font-light opacity-85;
 }
 </style>
