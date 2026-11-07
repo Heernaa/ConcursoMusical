@@ -14,4 +14,4 @@
 
 - [ ] Crear JSON para leer información del ranking
   - [ ] **IF** JSON empty --> Cargar página **VACIA**
-  - [ ] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 
+  - [ ] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 (v-for)
