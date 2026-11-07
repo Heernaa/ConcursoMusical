@@ -7,8 +7,8 @@ import NavLink from './NavLink.vue'
   <header class="barra">
     <span class="titulo"><RouterLink :to="{ name: 'home' }">RiVERLAND</RouterLink></span>
     <nav class="enlaces">
-      <NavLink link-to="otro">Otro</NavLink>
-      <NavLink link-to="componentes">Componentes</NavLink>
+      <NavLink link-to="componentes">componentes</NavLink>
+      <NavLink link-to="ranking">ranking</NavLink>
     </nav>
   </header>
 </template>

@@ -26,8 +26,8 @@ useGlitchText(heroTitle)
         mejores puntuaciones entran en el leaderboard y las 3 primeras suben al podio.
       </p>
       <div class="cta">
-        <PrimaryButton link-to="otro" />
-        <SecondaryButton link-to="componentes">
+        <PrimaryButton link-to="componentes" />
+        <SecondaryButton link-to="ranking">
           ver ranking
           <template #icono><TrophyIcon /></template>
         </SecondaryButton>

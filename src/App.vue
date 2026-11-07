@@ -11,6 +11,6 @@ import NavBar from './components/navigation/NavBar.vue'
 
 <style scoped>
   .contenedor{
-    @apply flex min-h-full flex-col
+    @apply flex min-h-screen flex-col
   }
 </style>
