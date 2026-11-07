@@ -1,5 +1,17 @@
-- [x] **Sacar** el **estilo** de los componentes de la etiqueta **HTML** de estos, a `main.css` o dentro del **style** del componente.
-    - Metido el **estilo** dentro del apartado de `<style>`, de cada componente. En `main.css` solo queda los estilos globales.
-- [x] **Crear** los props de los `RouterLink` para el componente de botón de `src/components/NavLink.vue`.
-    - Prop creat amb **linkTo** amb el **nom** de la **ruta**.
-- [ ] **Convertir** el títol de **Riverland** a **RouterLink**.
+# toDo
+
+## Ranking
+
+### Template
+
+- [ ] Crear el HTML de la página
+
+### Style
+
+- [ ] Ajustar los estilos para construir la página
+
+### Script 
+
+- [ ] Crear JSON para leer información del ranking
+  - [ ] **IF** JSON empty --> Cargar página **VACIA**
+  - [ ] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 
