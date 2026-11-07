@@ -5,12 +5,12 @@
 
 <script setup>
 const { linkTo } = defineProps({
-  linkTo: { type: String, requiered: true},
+  linkTo: { type: String, requiered: true },
 })
 </script>
 
 <template>
-  <RouterLink class="enlace" :to="linkTo">
+  <RouterLink class="enlace" :to="{ name: linkTo }">
     <slot></slot>
   </RouterLink>
 </template>
@@ -19,7 +19,7 @@ const { linkTo } = defineProps({
 @reference '../../assets/main.css';
 
 .enlace {
-  @apply inline-flex cursor-pointer items-center border-2 border-transparent px-4 py-3 font-titulo text-boton text-blanco uppercase;
+  @apply inline-flex cursor-pointer items-center border-2 border-transparent px-4 py-3 font-titulo text-boton text-blanco uppercase transition delay-50 duration-300 ease-in-out;
 }
 .enlace:hover {
   @apply border-verde-primario text-verde-primario shadow-[0_0_12px_rgba(117,251,77,0.35)];
