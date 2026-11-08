@@ -33,13 +33,16 @@ defineProps({
   @apply grid size-12 shrink-0 place-items-center overflow-hidden font-titulo text-h4 uppercase;
 }
 .verde .badge {
-  @apply bg-verde-primario text-negro shadow-[4px_4px_0_var(--color-magenta-secundario)];
+  @apply bg-verde-primario text-negro;
+  box-shadow: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0 var(--color-magenta-secundario);
 }
 .magenta .badge {
-  @apply bg-magenta-secundario text-negro shadow-[4px_4px_0_var(--color-morado-terciario)];
+  @apply bg-magenta-secundario text-negro;
+  box-shadow: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0 var(--color-morado-terciario);
 }
 .morado .badge {
-  @apply bg-morado-terciario text-blanco shadow-[4px_4px_0_var(--color-verde-primario)];
+  @apply bg-morado-terciario text-blanco;
+  box-shadow: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0 var(--color-verde-primario);
 }
 .texto {
   @apply min-w-0 flex-1 font-cuerpo text-cuerpo font-light text-blanco;

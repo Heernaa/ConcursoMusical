@@ -32,13 +32,19 @@ defineProps({
 @reference '../../assets/main.css';
 
 .primario {
-  @apply flex cursor-pointer items-start overflow-clip border-2 border-morado-terciario bg-negro shadow-[0_0_12px_rgba(117,251,77,0.45)];
+  @apply flex cursor-pointer items-start overflow-clip border border-morado-terciario bg-negro;
+  border-width: round(calc(2 * var(--u, 1px)), 1px);
+  box-shadow: 0 0 calc(12 * var(--u, 1px)) rgba(117, 251, 77, 0.45);
 }
 .primario:hover {
-  @apply border-verde-primario shadow-[0_0_19px_rgba(234,51,214,0.7)];
+  @apply border-verde-primario;
+  box-shadow: 0 0 calc(19 * var(--u, 1px)) rgba(234, 51, 214, 0.7);
 }
 .primario:focus-visible {
-  @apply border-blanco shadow-[0_0_0_3px_#ea33d6,0_0_12px_rgba(117,251,77,0.45)] outline-none;
+  @apply border-blanco outline-none;
+  box-shadow:
+    0 0 0 calc(3 * var(--u, 1px)) #ea33d6,
+    0 0 calc(12 * var(--u, 1px)) rgba(117, 251, 77, 0.45);
 }
 .primario:active {
   @apply border-morado-terciario shadow-none;
@@ -61,7 +67,8 @@ defineProps({
 }
 
 .flecha {
-  @apply flex items-center bg-morado-terciario p-3.5 text-[16px] leading-none font-black text-blanco;
+  @apply flex items-center bg-morado-terciario p-3.5 leading-none font-black text-blanco;
+  font-size: calc(16 * var(--u, 1px));
 }
 .primario:hover .flecha {
   @apply bg-verde-primario text-negro;

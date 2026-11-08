@@ -65,7 +65,8 @@ const hayError = computed(() => props.error !== '')
 
 /* Default */
 .campo {
-  @apply flex w-full items-center gap-3.5 border-2 border-blanco/35 bg-negro px-5 py-4 transition-[border-color,box-shadow] duration-200;
+  @apply flex w-full items-center gap-3.5 border border-blanco/35 bg-negro px-5 py-4 transition-[border-color,box-shadow] duration-200;
+  border-width: round(calc(2 * var(--u, 1px)), 1px);
 }
 .icono {
   @apply size-6 shrink-0 text-blanco transition-colors duration-200;
@@ -84,7 +85,8 @@ const hayError = computed(() => props.error !== '')
 
 /* Focus */
 .campo:focus-within {
-  @apply border-verde-primario shadow-[6px_6px_0_var(--color-magenta-secundario)];
+  @apply border-verde-primario;
+  box-shadow: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-magenta-secundario);
 }
 .campo:focus-within .icono {
   @apply text-verde-primario;
@@ -95,7 +97,8 @@ const hayError = computed(() => props.error !== '')
   @apply text-magenta-secundario;
 }
 .error .campo {
-  @apply border-magenta-secundario shadow-[6px_6px_0_var(--color-morado-terciario)];
+  @apply border-magenta-secundario;
+  box-shadow: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-morado-terciario);
 }
 .error .icono {
   @apply text-magenta-secundario;

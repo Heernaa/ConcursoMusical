@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
-  // Alto y ancho en px. Las capas (glitch, cuerpo, pico) se estiran con la barra.
+  // Alto y ancho en px de Figma (se escalan con --u si la vista lo define).
+  // Las capas (glitch, cuerpo, pico) se estiran con la barra.
   alto: {
     type: Number,
     default: 240,
@@ -14,7 +15,11 @@ defineProps({
 
 <!-- Barra Frecuencia / RiVERLAND. Decorativa. -->
 <template>
-  <div class="barra" :style="{ height: `${alto}px`, width: `${ancho}px` }" aria-hidden="true">
+  <div
+    class="barra"
+    :style="{ height: `calc(${alto} * var(--u, 1px))`, width: `calc(${ancho} * var(--u, 1px))` }"
+    aria-hidden="true"
+  >
     <div class="glitch-magenta"></div>
     <div class="glitch-morado"></div>
     <div class="cuerpo"></div>
@@ -40,7 +45,8 @@ defineProps({
   @apply absolute top-1.75 bottom-0 left-0.75 w-full bg-morado-terciario opacity-85;
 }
 .cuerpo {
-  @apply absolute top-2.5 bottom-0 left-0 w-full bg-linear-to-b from-verde-primario to-verde-oscuro shadow-[0_0_12px_rgba(117,251,77,0.45)];
+  @apply absolute top-2.5 bottom-0 left-0 w-full bg-linear-to-b from-verde-primario to-verde-oscuro;
+  box-shadow: 0 0 calc(12 * var(--u, 1px)) rgba(117, 251, 77, 0.45);
 }
 .pico {
   @apply absolute top-0 left-0 h-1 w-full bg-blanco;

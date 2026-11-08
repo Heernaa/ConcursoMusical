@@ -49,10 +49,12 @@ const ANCHO_BARRA = 10
   @apply font-titulo text-boton whitespace-nowrap text-negro uppercase max-sm:whitespace-normal;
 }
 .frases {
-  @apply m-0 flex flex-col items-start gap-3 font-titulo text-[46px]/[1.05] tracking-[0.02em] whitespace-nowrap text-negro uppercase max-sm:text-[30px];
+  @apply m-0 flex flex-col items-start gap-3 font-titulo leading-[1.05] tracking-[0.02em] whitespace-nowrap text-negro uppercase;
+  font-size: calc(46 * var(--u, 1px));
 }
 .sticker {
-  @apply bg-negro px-4 py-2 text-verde-primario shadow-[6px_6px_0_var(--color-verde-primario)];
+  @apply bg-negro px-4 py-2 text-verde-primario;
+  box-shadow: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-verde-primario);
 }
 
 /* Ecualizador */
