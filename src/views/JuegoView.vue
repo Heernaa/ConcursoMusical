@@ -115,10 +115,11 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
     </div>
 
     <div class="opciones">
-      <OpcionRespuesta letra="A" respuesta="Someone Like You" />
-      <OpcionRespuesta letra="B" respuesta="Rolling in the Deep" />
-      <OpcionRespuesta letra="C" respuesta="Set Fire to the Rain" />
-      <OpcionRespuesta letra="D" respuesta="Hello" estado="seleccionada" />
+      <OpcionRespuesta v-for="(opcion, i) in opcionesPreguntas"
+        :key="opcion.nombre"
+        :letra="String.fromCharCode(65 + i)"
+        :respuesta="opcion.nombre"
+      />
     </div>
 
     <div class="acciones">
