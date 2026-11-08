@@ -39,21 +39,21 @@ onMounted(async () => {
   }
 })
 
-const opciones = computed(() => canciones.value.map((cancion) => cancion.opciones))
+const cancion = computed(() => canciones.value[indice.value])
+console.log(cancion)
 
-console.log(opciones)
+const opciones = computed(() => cancion.value?.opciones)
+console.log({"Opciones": opciones})
 
-const segmentos = computed(() =>
-  segmentosBase.value.map((segmento, i) => {
-    if (i === indice.value) {
-      return 'actual'
-    } else if (i < indice.value) {
-      return 'completado'
-    } else {
-      return 'pendiente'
-    }
-  }),
-)
+const segmentos = computed(() => segmentosBase.value.map((segmento, i) => {
+if (i === indice.value) {
+  return 'actual'
+} else if (i < indice.value) {
+  return 'completado'
+} else {
+  return 'pendiente'
+}
+}))
 const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
