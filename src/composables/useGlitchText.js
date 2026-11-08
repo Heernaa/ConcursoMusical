@@ -50,7 +50,9 @@ export function useGlitchText(containerRef, selector = 'h1') {
         s.style.minWidth = `${s.getBoundingClientRect().width}px`
       })
       const t0 = performance.now()
-      const resolveAt = chars.map((_, i) => DURATION_MS * 0.25 + Math.random() * DURATION_MS * 0.7 + i * 10)
+      const resolveAt = chars.map(
+        (_, i) => DURATION_MS * 0.25 + Math.random() * DURATION_MS * 0.7 + i * 10,
+      )
       const nextAt = chars.map(() => 0)
 
       const tick = (now) => {

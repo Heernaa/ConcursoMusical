@@ -23,13 +23,13 @@
 
 **Funcionalidades**
 
-- [ ] <ProgresoJuego />
-  - [ ] Renderizar de forma dinámica
+- [x] <ProgresoJuego />
+  - [x] Renderizar de forma dinámica
     - [x] Pregunta --> X/10
     - [x] Porcentaje --> (X/10) * 100
-    - [ ] :segmentos --> Lista de estado de pregunta
+    - [x] :segmentos --> Lista de estado de pregunta
 - [ ] <section class="escenario">
-  - [ ] <p class="numero"> --> Cargar dinámicamente
+  - [x] <p class="numero"> --> Cargar dinámicamente
   - [ ] <ReproductorFragmento />
     - [ ] estado --> Dinamico
     - [ ] tiempo --> Dinamico 

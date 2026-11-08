@@ -10,27 +10,52 @@ import { onMounted, ref, computed } from 'vue'
 
 const jugador = useJugadorStore()
 
+// const PUNTOS_ACIERTO = 10
+const NUMERO_PREGUNTAS = 10
+const aciertos = ref(0)
+const puntos = ref(0)
+
+const segmentosBase = ref(Array(NUMERO_PREGUNTAS).fill('pendiente'))
+
 const canciones = ref([])
+
 const cargando = ref(true)
 const error = ref(null)
 
-const cancionActual = ref(0)
+const indice = ref(0)
+const cancionActual = ref(indice.value + 1)
 
 onMounted(async () => {
   try {
     const response = await import('@/data/songs.json')
     canciones.value = response.default.songs
     console.log(canciones.value)
+    console.log(opciones.value)
   } catch (e) {
-      console.error(e)
-      error.value = "Error en la carga de canciones"
+    console.error(e)
+    error.value = 'Error en la carga de canciones'
   } finally {
     cargando.value = false
   }
 })
 
-const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`);
-const porcentajeActual = computed(() => `${(cancionActual.value/10)*100}%`)
+const opciones = computed(() => canciones.value.map((cancion) => cancion.opciones))
+
+console.log(opciones)
+
+const segmentos = computed(() =>
+  segmentosBase.value.map((segmento, i) => {
+    if (i === indice.value) {
+      return 'actual'
+    } else if (i < indice.value) {
+      return 'completado'
+    } else {
+      return 'pendiente'
+    }
+  }),
+)
+const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
+const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia / Howler) al dinamizarla.
@@ -45,28 +70,17 @@ const porcentajeActual = computed(() => `${(cancionActual.value/10)*100}%`)
     <h1>{{ error }}</h1>
   </main>
   <main v-else class="juego">
-    <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="20" />
+    <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="puntos" />
 
     <ProgresoJuego
       :pregunta="preguntaActual"
       :porcentaje="porcentajeActual"
-      :segmentos="[
-        'completado',
-        'completado',
-        'actual',
-        'pendiente',
-        'pendiente',
-        'pendiente',
-        'pendiente',
-        'pendiente',
-        'pendiente',
-        'pendiente',
-      ]"
+      :segmentos="segmentos"
     />
 
     <section class="escenario">
       <div class="numero-pregunta">
-        <p class="numero">03</p>
+        <p class="numero">{{ cancionActual }}</p>
         <p class="total">de 10 temas</p>
       </div>
       <ReproductorFragmento

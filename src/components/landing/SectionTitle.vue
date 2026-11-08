@@ -3,7 +3,9 @@
   <div class="seccion">
     <h2 class="titulo"><slot>¿Cómo funciona?</slot></h2>
     <p class="subtitulo">
-      <slot name="subtitulo">Un juego simple pero adictivo que pondrá a prueba tus conocimientos musicales</slot>
+      <slot name="subtitulo"
+        >Un juego simple pero adictivo que pondrá a prueba tus conocimientos musicales</slot
+      >
     </p>
   </div>
 </template>

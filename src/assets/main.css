@@ -99,20 +99,53 @@
   --animate-glitch-b: glitch-b 0.75s steps(1, end) infinite;
 
   @keyframes glitch-a {
-      0%   { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 1px); }
-      20%  { clip-path: inset(70% 0 5% 0);  transform: translate(3px, -1px); }
-      40%  { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 2px); }
-      60%  { clip-path: inset(5% 0 80% 0);  transform: translate(2px, -2px); }
-      80%  { clip-path: inset(85% 0 2% 0);  transform: translate(-3px, 0); }
-      100% { clip-path: inset(30% 0 50% 0); transform: translate(3px, 1px); }
+    0% {
+      clip-path: inset(20% 0 60% 0);
+      transform: translate(-3px, 1px);
     }
-    @keyframes glitch-b {
-      0%   { clip-path: inset(60% 0 10% 0); transform: translate(3px, -1px); }
-      25%  { clip-path: inset(10% 0 75% 0); transform: translate(-3px, 1px); }
-      50%  { clip-path: inset(80% 0 5% 0);  transform: translate(2px, 2px); }
-      75%  { clip-path: inset(25% 0 55% 0); transform: translate(-2px, -2px); }
-      100% { clip-path: inset(50% 0 30% 0); transform: translate(3px, 0); }
+    20% {
+      clip-path: inset(70% 0 5% 0);
+      transform: translate(3px, -1px);
     }
+    40% {
+      clip-path: inset(40% 0 40% 0);
+      transform: translate(-2px, 2px);
+    }
+    60% {
+      clip-path: inset(5% 0 80% 0);
+      transform: translate(2px, -2px);
+    }
+    80% {
+      clip-path: inset(85% 0 2% 0);
+      transform: translate(-3px, 0);
+    }
+    100% {
+      clip-path: inset(30% 0 50% 0);
+      transform: translate(3px, 1px);
+    }
+  }
+  @keyframes glitch-b {
+    0% {
+      clip-path: inset(60% 0 10% 0);
+      transform: translate(3px, -1px);
+    }
+    25% {
+      clip-path: inset(10% 0 75% 0);
+      transform: translate(-3px, 1px);
+    }
+    50% {
+      clip-path: inset(80% 0 5% 0);
+      transform: translate(2px, 2px);
+    }
+    75% {
+      clip-path: inset(25% 0 55% 0);
+      transform: translate(-2px, -2px);
+    }
+    100% {
+      clip-path: inset(50% 0 30% 0);
+      transform: translate(3px, 0);
+    }
+  }
 }
 
 /*
@@ -121,13 +154,20 @@
   en cada elemento y escalen con las vistas que redefinen --u (como JugarView).
 */
 @theme inline {
-  --shadow-bloque-verde-4: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0 var(--color-verde-primario);
-  --shadow-bloque-magenta-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-magenta-secundario);
-  --shadow-bloque-morado-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-morado-terciario);
-  --shadow-bloque-verde-oscuro-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-verde-oscuro);
-  --shadow-bloque-verde-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0 var(--color-verde-primario);
-  --shadow-bloque-morado-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0 var(--color-morado-terciario);
-  --shadow-bloque-magenta-12: calc(12 * var(--u, 1px)) calc(12 * var(--u, 1px)) 0 var(--color-magenta-secundario);
+  --shadow-bloque-verde-4: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0
+    var(--color-verde-primario);
+  --shadow-bloque-magenta-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0
+    var(--color-magenta-secundario);
+  --shadow-bloque-morado-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0
+    var(--color-morado-terciario);
+  --shadow-bloque-verde-oscuro-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0
+    var(--color-verde-oscuro);
+  --shadow-bloque-verde-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0
+    var(--color-verde-primario);
+  --shadow-bloque-morado-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0
+    var(--color-morado-terciario);
+  --shadow-bloque-magenta-12: calc(12 * var(--u, 1px)) calc(12 * var(--u, 1px)) 0
+    var(--color-magenta-secundario);
   /* Glow neón (segmento actual del progreso) */
   --shadow-glow-magenta: 0 0 calc(12 * var(--u, 1px)) rgba(234, 51, 214, 0.7);
 }
@@ -138,11 +178,10 @@
     @apply bg-linear-to-b bg-linear-270  from-indigo-950 to-black  text-blanco font-cuerpo font-light text-cuerpo min-h-screen min-w-screen m-0 p-0;
   }
   h1 {
-    @apply text-h1 font-titulo uppercase
+    @apply text-h1 font-titulo uppercase;
   }
 
   p {
-    @apply text-cuerpo font-cuerpo
+    @apply text-cuerpo font-cuerpo;
   }
-
 }

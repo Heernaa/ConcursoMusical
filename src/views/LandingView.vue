@@ -40,9 +40,9 @@ useGlitchText(heroTitle)
         <p>Un juego simple pero adictivo que pondra a prueba tus conocimientos musicales</p>
       </div>
       <div class="instructionsContent">
-        <StepCardVerde class="intructionsCard"/>
-        <StepCardMagenta  class="intructionsCard"/>
-        <StepCardMorado  class="intructionsCard"/>
+        <StepCardVerde class="intructionsCard" />
+        <StepCardMagenta class="intructionsCard" />
+        <StepCardMorado class="intructionsCard" />
       </div>
     </section>
   </main>
@@ -98,19 +98,19 @@ h1 {
 }
 
 .instructionsHeader {
-  @apply w-5xl text-center flex flex-col gap-4
+  @apply w-5xl text-center flex flex-col gap-4;
 }
 
 .instructionsHeader h2 {
-  @apply text-h2 font-titulo font-bold
+  @apply text-h2 font-titulo font-bold;
 }
 
 .instructionsHeader p {
-  @apply text-base font-titulo font-medium
+  @apply text-base font-titulo font-medium;
 }
 
 .instructionsContent {
-  @apply min-w-full min-h-full flex flex-row items-center justify-around gap-8
+  @apply min-w-full min-h-full flex flex-row items-center justify-around gap-8;
 }
 
 .intructionsCard {

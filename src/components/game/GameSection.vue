@@ -1,5 +1,5 @@
 <script setup>
-import { useJugadorStore } from '@/stores/jugador';
+import { useJugadorStore } from '@/stores/jugador'
 
 const jugador = useJugadorStore()
 </script>

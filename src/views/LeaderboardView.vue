@@ -23,8 +23,8 @@ onMounted(async () => {
 <template>
   <section class="leaderboard">
     <h1 v-if="cargando">Cargando...</h1>
-    <LeaderboardEmpty v-else-if="ranking.length < 1"/>
-    <LeaderboardList :entradas="ranking" :jugadores="ranking.length"/>
+    <LeaderboardEmpty v-else-if="ranking.length < 1" />
+    <LeaderboardList :entradas="ranking" :jugadores="ranking.length" />
   </section>
 </template>
 

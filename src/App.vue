@@ -4,13 +4,13 @@ import NavBar from './components/navigation/NavBar.vue'
 
 <template>
   <div class="contenedor">
-    <NavBar /> 
-    <RouterView class="flex-1"/>
+    <NavBar />
+    <RouterView class="flex-1" />
   </div>
 </template>
 
 <style scoped>
-  .contenedor{
-    @apply flex min-h-screen flex-col
-  }
+.contenedor {
+  @apply flex min-h-screen flex-col;
+}
 </style>
