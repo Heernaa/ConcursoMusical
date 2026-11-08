@@ -25,8 +25,8 @@
 
 - [ ] <ProgresoJuego />
   - [ ] Renderizar de forma dinámica
-    - [ ] Pregunta --> X/10
-    - [ ] Porentaje --> (X/10) * 100
+    - [x] Pregunta --> X/10
+    - [x] Porcentaje --> (X/10) * 100
     - [ ] :segmentos --> Lista de estado de pregunta
 - [ ] <section class="escenario">
   - [ ] <p class="numero"> --> Cargar dinámicamente
@@ -39,13 +39,13 @@
 
 **Cambios necesarios**
 
-- [ ] Lista de canciones --> 10 canciones
-  - [ ] Nombre
-  - [ ] Artista
-  - [ ] src
-  - [ ] lista de opciones
+- [x] Lista de canciones --> 10 canciones
+  - [x] Nombre
+  - [x] Artista
+  - [ ] src --> King Kong
+  - [x] lista de opciones
     - [ ] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
-  - [ ] 1 pista personalizada
+  - [x] 1 pista personalizada
 
 
 - Sticky --> 1 

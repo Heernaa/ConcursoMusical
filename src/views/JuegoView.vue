@@ -6,8 +6,31 @@ import OpcionRespuesta from '@/components/game/OpcionRespuesta.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
+import { onMounted, ref, computed } from 'vue'
 
 const jugador = useJugadorStore()
+
+const canciones = ref([])
+const cargando = ref(true)
+const error = ref(null)
+
+const cancionActual = ref(0)
+
+onMounted(async () => {
+  try {
+    const response = await import('@/data/songs.json')
+    canciones.value = response.default.songs
+    console.log(canciones.value)
+  } catch (e) {
+      console.error(e)
+      error.value = "Error en la carga de canciones"
+  } finally {
+    cargando.value = false
+  }
+})
+
+const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`);
+const porcentajeActual = computed(() => `${(cancionActual.value/10)*100}%`)
 
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia / Howler) al dinamizarla.
@@ -15,12 +38,18 @@ const jugador = useJugadorStore()
 
 <!-- MacBook Air - Juego V2 — Escenario -->
 <template>
-  <main class="juego">
+  <main v-if="cargando" class="flex flex-col min-h-full min-w-full justify-center items-center">
+    <h1>Cargando...</h1>
+  </main>
+  <main v-else-if="error !== null" class="min-h-full min-w-full justify-center items-center">
+    <h1>{{ error }}</h1>
+  </main>
+  <main v-else class="juego">
     <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="20" />
 
     <ProgresoJuego
-      pregunta="Pregunta 03 / 10"
-      porcentaje="30%"
+      :pregunta="preguntaActual"
+      :porcentaje="porcentajeActual"
       :segmentos="[
         'completado',
         'completado',

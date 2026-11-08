@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useJugadorStore } from '@/stores/jugador'
 import ComponentesView from '@/views/ComponentesView.vue'
 import LandingView from '@/views/LandingView.vue'
 import JugarView from '@/views/JugarView.vue'
@@ -17,7 +18,20 @@ const router = createRouter({
       component: LeaderboardPreviewView,
     },
     { path: '/jugar', name: 'jugar', component: JugarView },
-    { path: '/partida', name: 'partida', component: JuegoView },
+    {
+      path: '/partida',
+      name: 'partida',
+      component: JuegoView,
+      // Solo se puede jugar con un jugador registrado; si no, se vuelve a Jugar.
+      // El store se obtiene aquí dentro (y no al inicio del archivo) porque Pinia
+      // aún no está activo cuando se importa el router en main.js.
+      beforeEnter: () => {
+        const jugador = useJugadorStore()
+        if (jugador.nombre === '') {
+          return { name: 'jugar' }
+        }
+      },
+    },
     { path: '/', name: 'home', component: LandingView },
   ],
 })

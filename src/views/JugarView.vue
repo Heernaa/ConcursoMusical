@@ -7,8 +7,6 @@ import PasoInstruccion from '@/components/game/PasoInstruccion.vue'
 import InputNombre from '@/components/game/InputNombre.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
-import GameSection from '@/components/game/GameSection.vue'
-import JuegoView from './JuegoView.vue'
 
 // TODO: nombre de la ruta de la vista del juego, cuando exista
 const RUTA_PARTIDA = 'partida'
@@ -32,6 +30,7 @@ function comenzar() {
     return
   } else if (nombre.value.trim().length < 3) {
     error.value = ERROR_NOMBRE_CORTO
+    return
   }
 
   jugador.registrar(nombre.value)
@@ -46,7 +45,7 @@ function comenzar() {
 
 <!-- MacBook Air - Jugar · Nombre V2 — Póster -->
 <template>
-  <main v-if="jugador.nombre === ''" class="jugar">
+  <main class="jugar">
     <PosterJugar />
 
     <section class="registro">
@@ -82,9 +81,6 @@ function comenzar() {
         </form>
       </div>
     </section>
-  </main>
-  <main v-else>
-    <JuegoView />
   </main>
 </template>
 

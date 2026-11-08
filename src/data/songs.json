@@ -1,7 +1,7 @@
 {
   "songs": [
     {
-      "title": "Sueño Permantente",
+      "title": "Sueño Permanente",
       "artist": "Sticky M.A. feat. Roomtrash6",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/suenoPermantente.png",
@@ -10,7 +10,7 @@
         {
           "nombre": "Sueño Permanente",
           "artistas": "Sticky M.A. & Roomtrash6",
-          "correcta": true 
+          "correcta": true
         },
         {
           "nombre": "get money",
@@ -38,7 +38,7 @@
           "correcta": false
         }
       ],
-      "pista": "Colaboración entre la nuevas sangre y la vieja"
+      "pista": "Colaboración entre la nueva sangre y la vieja"
     },
     {
       "title": "Carretera (Bonus Track)",
@@ -46,11 +46,11 @@
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/carretera.jpg",
       "src": "/music/Agorazein - Carretera (Audio Oficial).mp3",
-       "opciones": [
+      "opciones": [
         {
           "nombre": "Carretera (Bonus Track)",
           "artistas": "Agorazein",
-          "correcta": true 
+          "correcta": true
         },
         {
           "nombre": "Tu sabes",
@@ -78,14 +78,47 @@
           "correcta": false
         }
       ],
-      "pista": "El album celebra su décimo aniversario en este mes"
+      "pista": "El álbum celebra su décimo aniversario en este mes"
     },
     {
       "title": "La Maldición de Stickson",
       "artist": "Sticky M.A.",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/lmds.png",
-      "src": "/music/Sticky M.A. - La Maldición de Stickson.mp3"
+      "src": "/music/Sticky M.A. - La Maldición de Stickson.mp3",
+      "opciones": [
+        {
+          "nombre": "La Maldición de Stickson",
+          "artistas": "Sticky M.A.",
+          "correcta": true
+        },
+        {
+          "nombre": "Adrenocromo",
+          "artistas": "Sticky M.A.",
+          "correcta": false
+        },
+        {
+          "nombre": "YanoaY",
+          "artistas": "Sticky M.A. & Royce Rolo",
+          "correcta": false
+        },
+        {
+          "nombre": "Sueño Permanente",
+          "artistas": "Sticky M.A. & Roomtrash6",
+          "correcta": false
+        },
+        {
+          "nombre": "Tu sabes",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "Intro",
+          "artistas": "Yung Beef & Steve Lean",
+          "correcta": false
+        }
+      ],
+      "pista": "El artista se convierte en el protagonista maldito de su propia leyenda"
     },
     {
       "title": "Adrenocromo",
@@ -104,7 +137,7 @@
         {
           "nombre": "Lunes feriadooOoOO",
           "artistas": "Akriila",
-          "correcta": true 
+          "correcta": true
         },
         {
           "nombre": "Santiago de chile",
@@ -132,35 +165,207 @@
           "correcta": false
         }
       ],
-      "pista": "Lo más sonado desde chile"
+      "pista": "Lo más sonado desde Chile"
     },
     {
       "title": "Moriría y moriría",
       "artist": "Akriila",
       "artistImg": "/artists/akriila.webp",
       "trackImg": "/songsImg/moririaymoriria.png",
-      "src": "/music/Akriila - Moriría y moriría.mp3"
+      "src": "/music/Akriila - Moriría y moriría.mp3",
+      "opciones": [
+        {
+          "nombre": "Moriría y moriría",
+          "artistas": "Akriila",
+          "correcta": true
+        },
+        {
+          "nombre": "Lunes feriadooOoOO",
+          "artistas": "Akriila",
+          "correcta": false
+        },
+        {
+          "nombre": "Santiago de chile",
+          "artistas": "Akriila & Guitarricadelafuente",
+          "correcta": false
+        },
+        {
+          "nombre": "Dormiré sin ti",
+          "artistas": "izatkm",
+          "correcta": false
+        },
+        {
+          "nombre": "Sola",
+          "artistas": "Saramalacara",
+          "correcta": false
+        },
+        {
+          "nombre": "d CERO",
+          "artistas": "Taichu",
+          "correcta": false
+        }
+      ],
+      "pista": "Vuelve la voz chilena, esta vez repitiendo dos veces lo que haría por amor"
     },
     {
       "title": "Kariñosa",
       "artist": "Guxo",
       "artistImg": "/artists/guxo.jpg",
       "trackImg": "/songsImg/kariñosa.png",
-      "src": "/music/Guxo - Kariñosa.mp3"
+      "src": "/music/Guxo - Kariñosa.mp3",
+      "opciones": [
+        {
+          "nombre": "Kariñosa",
+          "artistas": "Guxo",
+          "correcta": true
+        },
+        {
+          "nombre": "ME LLAMAN LOCO",
+          "artistas": "yyy891 & Guxo",
+          "correcta": false
+        },
+        {
+          "nombre": "Me exhan del pary RMX",
+          "artistas": "Albany",
+          "correcta": false
+        },
+        {
+          "nombre": "Xapiadora",
+          "artistas": "La Mafia del Amor",
+          "correcta": false
+        },
+        {
+          "nombre": "Fiebre",
+          "artistas": "Bad Gyal",
+          "correcta": false
+        },
+        {
+          "nombre": "YSL",
+          "artistas": "8belial & yyy891",
+          "correcta": false
+        }
+      ],
+      "pista": "Una palabra tierna escrita con una letra que no le toca"
     },
     {
       "title": "Sin un plan",
       "artist": "Bon Calso",
       "artistImg": "/artists/bon_calso.jpg",
       "trackImg": "/songsImg/sinUnPlan.png",
-      "src": "/music/Bon Calso - Sin Un Plan.mp3"
+      "src": "/music/Bon Calso - Sin Un Plan.mp3",
+      "opciones": [
+        {
+          "nombre": "Sin un plan",
+          "artistas": "Bon Calso",
+          "correcta": true
+        },
+        {
+          "nombre": "Malamente",
+          "artistas": "Rosalía",
+          "correcta": false
+        },
+        {
+          "nombre": "Mala Mujer",
+          "artistas": "C. Tangana",
+          "correcta": false
+        },
+        {
+          "nombre": "Intro",
+          "artistas": "Yung Beef & Steve Lean",
+          "correcta": false
+        },
+        {
+          "nombre": "Xapiadora",
+          "artistas": "La Mafia del Amor",
+          "correcta": false
+        },
+        {
+          "nombre": "Diamantes",
+          "artistas": "Disobey",
+          "correcta": false
+        }
+      ],
+      "pista": "Ni rumbo ni estrategia: que salga lo que tenga que salir"
     },
     {
       "title": "To pue' ser",
       "artist": "Agorazein, Sticky M.A.",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/to_pue_ser.jpg",
-      "src": "/music/Agorazein - To Pue' Ser (Audio Oficial).mp3"
+      "src": "/music/Agorazein - To Pue' Ser (Audio Oficial).mp3",
+      "opciones": [
+        {
+          "nombre": "To pue' ser",
+          "artistas": "Agorazein & Sticky M.A.",
+          "correcta": true
+        },
+        {
+          "nombre": "Carretera (Bonus Track)",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "Tu sabes",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "YanoaY",
+          "artistas": "Sticky M.A. & Royce Rolo",
+          "correcta": false
+        },
+        {
+          "nombre": "La Maldición de Stickson",
+          "artistas": "Sticky M.A.",
+          "correcta": false
+        },
+        {
+          "nombre": "Intro",
+          "artistas": "Yung Beef & Steve Lean",
+          "correcta": false
+        }
+      ],
+      "pista": "«Todo puede ser»… pero comiéndose la mitad de las letras"
+    },
+    {
+      "title": "Kink Kong",
+      "artist": "Agorazein",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/kinkKong.png",
+      "src": "/music/Agorazein - Kink Kong.mp3",
+      "opciones": [
+        {
+          "nombre": "Kink Kong",
+          "artistas": "Agorazein",
+          "correcta": true
+        },
+        {
+          "nombre": "Carretera (Bonus Track)",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "To pue' ser",
+          "artistas": "Agorazein & Sticky M.A.",
+          "correcta": false
+        },
+        {
+          "nombre": "Tu sabes",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "YanoaY",
+          "artistas": "Sticky M.A. & Royce Rolo",
+          "correcta": false
+        },
+        {
+          "nombre": "Intro",
+          "artistas": "Yung Beef & Steve Lean",
+          "correcta": false
+        }
+      ],
+      "pista": "La canción de regreso del mítico grupo de rap madrileño"
     }
   ]
 }
