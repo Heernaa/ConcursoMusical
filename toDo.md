@@ -39,7 +39,7 @@
 
 **Cambios necesarios**
 
-- [ ] Lista de canciones
+- [ ] Lista de canciones --> 10 canciones
   - [ ] Nombre
   - [ ] Artista
   - [ ] src
@@ -47,3 +47,7 @@
     - [ ] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
   - [ ] 1 pista personalizada
 
+
+- Sticky --> 1 
+- AGZ --> 1 
+- Akriila --> 1

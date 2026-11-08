@@ -5,14 +5,80 @@
       "artist": "Sticky M.A. feat. Roomtrash6",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/suenoPermantente.png",
-      "src": "/music/Sticky M.A. & roomtrash6 - Sueño Permanente.mp3"
+      "src": "/music/Sticky M.A. & roomtrash6 - Sueño Permanente.mp3",
+      "opciones": [
+        {
+          "nombre": "Sueño Permanente",
+          "artistas": "Sticky M.A. & Roomtrash6",
+          "correcta": true 
+        },
+        {
+          "nombre": "get money",
+          "artistas": "Roomtrash6 & Grecas",
+          "correcta": false
+        },
+        {
+          "nombre": "YSL",
+          "artistas": "8belial & yyy891",
+          "correcta": false
+        },
+        {
+          "nombre": "ME LLAMAN LOCO",
+          "artistas": "yyy891 & Guxo",
+          "correcta": false
+        },
+        {
+          "nombre": "Red Bull Spiral #06",
+          "artistas": "8belial & yyy891 & Roomtrash6 & Cybernene",
+          "correcta": false
+        },
+        {
+          "nombre": "Adrenocromo",
+          "artistas": "Sticky M.A. & 60kCvndy",
+          "correcta": false
+        }
+      ],
+      "pista": "Colaboración entre la nuevas sangre y la vieja"
     },
     {
       "title": "Carretera (Bonus Track)",
       "artist": "Agorazein",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/carretera.jpg",
-      "src": "/music/Agorazein - Carretera (Audio Oficial).mp3"
+      "src": "/music/Agorazein - Carretera (Audio Oficial).mp3",
+       "opciones": [
+        {
+          "nombre": "Carretera (Bonus Track)",
+          "artistas": "Agorazein",
+          "correcta": true 
+        },
+        {
+          "nombre": "Tu sabes",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "Intro",
+          "artistas": "Yung Beef & Steve Lean",
+          "correcta": false
+        },
+        {
+          "nombre": "Xapiadora",
+          "artistas": "La Mafia del Amor",
+          "correcta": false
+        },
+        {
+          "nombre": "Diamantes",
+          "artistas": "Disobey",
+          "correcta": false
+        },
+        {
+          "nombre": "YanoaY",
+          "artistas": "Sticky M.A. & Royce Rolo",
+          "correcta": false
+        }
+      ],
+      "pista": "El album celebra su décimo aniversario en este mes"
     },
     {
       "title": "La Maldición de Stickson",
@@ -33,7 +99,40 @@
       "artist": "Akriila",
       "artistImg": "/artists/akriila.webp",
       "trackImg": "/songsImg/lunesferiadooOoOO.png",
-      "src": "/music/Akriila - Lunes feriadooOOoO.mp3"
+      "src": "/music/Akriila - Lunes feriadooOOoO.mp3",
+      "opciones": [
+        {
+          "nombre": "Lunes feriadooOoOO",
+          "artistas": "Akriila",
+          "correcta": true 
+        },
+        {
+          "nombre": "Santiago de chile",
+          "artistas": "Akriila & Guitarricadelafuente",
+          "correcta": false
+        },
+        {
+          "nombre": "Sola",
+          "artistas": "Saramalacara",
+          "correcta": false
+        },
+        {
+          "nombre": "Me exhan del pary RMX",
+          "artistas": "Albany",
+          "correcta": false
+        },
+        {
+          "nombre": "Dormiré sin ti",
+          "artistas": "izatkm",
+          "correcta": false
+        },
+        {
+          "nombre": "d CERO",
+          "artistas": "Taichu",
+          "correcta": false
+        }
+      ],
+      "pista": "Lo más sonado desde chile"
     },
     {
       "title": "Moriría y moriría",
