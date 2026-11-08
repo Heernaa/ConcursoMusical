@@ -6,13 +6,13 @@ import OpcionRespuesta from '@/components/game/OpcionRespuesta.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, watch } from 'vue'
 
 const jugador = useJugadorStore()
 
 // const PUNTOS_ACIERTO = 10
 const NUMERO_PREGUNTAS = 10
-const aciertos = ref(0)
+// const aciertos = ref(0)
 const puntos = ref(0)
 
 const segmentosBase = ref(Array(NUMERO_PREGUNTAS).fill('pendiente'))
@@ -23,14 +23,12 @@ const cargando = ref(true)
 const error = ref(null)
 
 const indice = ref(0)
-const cancionActual = ref(indice.value + 1)
+const cancionActual = computed(() => indice.value + 1)
 
 onMounted(async () => {
   try {
     const response = await import('@/data/songs.json')
     canciones.value = response.default.songs
-    console.log(canciones.value)
-    console.log(opciones.value)
   } catch (e) {
     console.error(e)
     error.value = 'Error en la carga de canciones'
@@ -42,8 +40,27 @@ onMounted(async () => {
 const cancion = computed(() => canciones.value[indice.value])
 console.log(cancion)
 
-const opciones = computed(() => cancion.value?.opciones)
+const opciones = computed(() => cancion.value?.opciones ?? [])
 console.log({"Opciones": opciones})
+
+const opcionCorrecta = computed(() => opciones.value.find((opcion) => opcion.correcta))
+const opcionesIncorrectas = computed(() => opciones.value.filter((opcion) => !opcion.correcta))
+
+function barajar(array) {
+  return [...array].sort(() => Math.random() - 0.5)
+}
+
+const opcionesPreguntas = computed(() => barajar([opcionCorrecta.value, ...barajar(opcionesIncorrectas.value).slice(0,3)]))
+
+watch(opcionCorrecta, (valor) => {
+  console.log('correcta:', valor)
+})
+watch(opcionesIncorrectas, (valor) => {
+  console.log('incorrectas:', valor)
+})
+watch(opcionesPreguntas, (valor) => {
+  console.log('opciones:', valor)
+})
 
 const segmentos = computed(() => segmentosBase.value.map((segmento, i) => {
 if (i === indice.value) {
