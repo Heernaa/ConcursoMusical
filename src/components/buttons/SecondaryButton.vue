@@ -4,18 +4,29 @@
 import { RouterLink } from 'vue-router'
 
 defineProps({
+  // Nombre de la ruta. Si no se pasa, se renderiza un <button> (p. ej. "Saltar" en la partida).
   linkTo: {
     type: String,
-    required: true,
+    default: '',
+  },
+  // Tipo del <button> cuando no hay linkTo
+  type: {
+    type: String,
+    default: 'button',
   },
 })
 </script>
 
 <template>
-  <RouterLink :to="{ name: linkTo }" class="secundario">
+  <component
+    :is="linkTo ? RouterLink : 'button'"
+    :to="linkTo ? { name: linkTo } : undefined"
+    :type="linkTo ? undefined : type"
+    class="secundario"
+  >
     <slot></slot>
     <slot name="icono"><span class="flecha">→</span></slot>
-  </RouterLink>
+  </component>
 </template>
 
 <style scoped>

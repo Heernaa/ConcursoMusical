@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ComponentesView from '@/views/ComponentesView.vue'
 import LandingView from '@/views/LandingView.vue'
 import JugarView from '@/views/JugarView.vue'
+import JuegoView from '@/views/JuegoView.vue'
 import LeaderboardPreviewView from '@/views/LeaderboardPreviewView.vue'
 import LeaderboardView from '@/views/LeaderboardView.vue'
 import GameSection from '@/components/game/GameSection.vue'
@@ -17,6 +18,7 @@ const router = createRouter({
       component: LeaderboardPreviewView,
     },
     { path: '/jugar', name: 'jugar', component: JugarView },
+    { path: '/partida', name: 'partida', component: JuegoView },
     { path: '/', name: 'home', component: LandingView },
   ],
 })

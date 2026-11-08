@@ -9,6 +9,11 @@ import StepCardMagenta from '@/components/landing/StepCardMagenta.vue'
 import StepCardMorado from '@/components/landing/StepCardMorado.vue'
 import BarraFrecuencia from '@/components/landing/BarraFrecuencia.vue'
 import GameSection from '@/components/game/GameSection.vue'
+import HeaderJuego from '@/components/game/HeaderJuego.vue'
+import ProgresoJuego from '@/components/game/ProgresoJuego.vue'
+import SegmentoProgreso from '@/components/game/SegmentoProgreso.vue'
+import ReproductorFragmento from '@/components/game/ReproductorFragmento.vue'
+import OpcionRespuesta from '@/components/game/OpcionRespuesta.vue'
 </script>
 
 <template>
@@ -52,6 +57,27 @@ import GameSection from '@/components/game/GameSection.vue'
     </section>
 
     <GameSection />
+
+    <section class="seccion">
+      <h2 class="titulo">Partida</h2>
+      <HeaderJuego />
+      <ProgresoJuego />
+      <div class="fila fila-centrada">
+        <SegmentoProgreso estado="completado" class="segmento-muestra" />
+        <SegmentoProgreso estado="actual" class="segmento-muestra" />
+        <SegmentoProgreso estado="pendiente" class="segmento-muestra" />
+      </div>
+      <ReproductorFragmento />
+      <ReproductorFragmento estado="reproduciendo" :progreso="50" />
+      <p class="aviso">Opción Respuesta: pasa el ratón por la primera para ver el hover.</p>
+      <div class="opciones">
+        <OpcionRespuesta />
+        <OpcionRespuesta estado="seleccionada" />
+        <OpcionRespuesta estado="correcta" />
+        <OpcionRespuesta estado="incorrecta" />
+        <OpcionRespuesta estado="deshabilitada" />
+      </div>
+    </section>
   </main>
 </template>
 
@@ -84,5 +110,11 @@ import GameSection from '@/components/game/GameSection.vue'
 }
 .trofeo {
   @apply size-4;
+}
+.segmento-muestra {
+  @apply w-10 flex-none;
+}
+.opciones {
+  @apply flex w-140 max-w-full flex-col gap-6;
 }
 </style>

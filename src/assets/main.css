@@ -115,6 +115,23 @@
     }
 }
 
+/*
+  Sombras de bloque: sólidas y desplazadas (Figma: drop shadow X=Y, sin desenfoque). Nombre:
+  shadow-bloque-{color}-{desplazamiento en px}. Van en @theme inline para que var(--u) se resuelva
+  en cada elemento y escalen con las vistas que redefinen --u (como JugarView).
+*/
+@theme inline {
+  --shadow-bloque-verde-4: calc(4 * var(--u, 1px)) calc(4 * var(--u, 1px)) 0 var(--color-verde-primario);
+  --shadow-bloque-magenta-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-magenta-secundario);
+  --shadow-bloque-morado-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-morado-terciario);
+  --shadow-bloque-verde-oscuro-6: calc(6 * var(--u, 1px)) calc(6 * var(--u, 1px)) 0 var(--color-verde-oscuro);
+  --shadow-bloque-verde-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0 var(--color-verde-primario);
+  --shadow-bloque-morado-8: calc(8 * var(--u, 1px)) calc(8 * var(--u, 1px)) 0 var(--color-morado-terciario);
+  --shadow-bloque-magenta-12: calc(12 * var(--u, 1px)) calc(12 * var(--u, 1px)) 0 var(--color-magenta-secundario);
+  /* Glow neón (segmento actual del progreso) */
+  --shadow-glow-magenta: 0 0 calc(12 * var(--u, 1px)) rgba(234, 51, 214, 0.7);
+}
+
 /* Estilos globales de la página */
 @layer base {
   body {

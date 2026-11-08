@@ -10,6 +10,19 @@ defineProps({
     type: Number,
     default: 16,
   },
+  // Capas opcionales (Figma: Glitch · Corte Glitch · Pico). El Reproductor las usa sin glitch ni corte.
+  glitch: {
+    type: Boolean,
+    default: true,
+  },
+  corteGlitch: {
+    type: Boolean,
+    default: true,
+  },
+  pico: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
@@ -20,11 +33,13 @@ defineProps({
     :style="{ height: `calc(${alto} * var(--u, 1px))`, width: `calc(${ancho} * var(--u, 1px))` }"
     aria-hidden="true"
   >
-    <div class="glitch-magenta"></div>
-    <div class="glitch-morado"></div>
+    <template v-if="glitch">
+      <div class="glitch-magenta"></div>
+      <div class="glitch-morado"></div>
+    </template>
     <div class="cuerpo"></div>
-    <div class="pico"></div>
-    <div class="corte">
+    <div v-if="pico" class="pico"></div>
+    <div v-if="corteGlitch" class="corte">
       <div class="hueco"></div>
       <div class="desplazado"></div>
       <div class="desplazado-2"></div>
