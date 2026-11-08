@@ -1,6 +1,12 @@
+<script setup>
+import { useJugadorStore } from '@/stores/jugador';
+
+const jugador = useJugadorStore()
+</script>
+
 <template>
   <section class="seccion">
-    <h2 class="titulo">Juego</h2>
+    <h2 class="titulo">Jugador: {{ jugador.nombre }}</h2>
 
     <!-- Input Nombre / RiVERLAND -->
     <div class="bloque">
