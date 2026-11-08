@@ -19,4 +19,31 @@
 
 ## Jugar
 
-- [ ] Pensar la forma de guardar el nombre y cambiar la vista a la de juego real
+### JuegoView
+
+**Funcionalidades**
+
+- [ ] <ProgresoJuego />
+  - [ ] Renderizar de forma dinámica
+    - [ ] Pregunta --> X/10
+    - [ ] Porentaje --> (X/10) * 100
+    - [ ] :segmentos --> Lista de estado de pregunta
+- [ ] <section class="escenario">
+  - [ ] <p class="numero"> --> Cargar dinámicamente
+  - [ ] <ReproductorFragmento />
+    - [ ] estado --> Dinamico
+    - [ ] tiempo --> Dinamico 
+    - [ ] ayuda --> Pistas personalizadas
+  - [ ] <div class="opciones">
+    - [ ] <OpcionRespuesta/> --> Dinámica
+
+**Cambios necesarios**
+
+- [ ] Lista de canciones
+  - [ ] Nombre
+  - [ ] Artista
+  - [ ] src
+  - [ ] lista de opciones
+    - [ ] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
+  - [ ] 1 pista personalizada
+

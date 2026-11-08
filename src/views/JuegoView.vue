@@ -5,6 +5,9 @@ import ReproductorFragmento from '@/components/game/ReproductorFragmento.vue'
 import OpcionRespuesta from '@/components/game/OpcionRespuesta.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
+import { useJugadorStore } from '@/stores/jugador'
+
+const jugador = useJugadorStore()
 
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia / Howler) al dinamizarla.
@@ -13,7 +16,7 @@ import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 <!-- MacBook Air - Juego V2 — Escenario -->
 <template>
   <main class="juego">
-    <HeaderJuego titulo="Adivina la canción" jugador="Javi" :puntos="20" />
+    <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="20" />
 
     <ProgresoJuego
       pregunta="Pregunta 03 / 10"

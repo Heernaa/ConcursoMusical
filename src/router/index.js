@@ -5,7 +5,6 @@ import JugarView from '@/views/JugarView.vue'
 import JuegoView from '@/views/JuegoView.vue'
 import LeaderboardPreviewView from '@/views/LeaderboardPreviewView.vue'
 import LeaderboardView from '@/views/LeaderboardView.vue'
-import GameSection from '@/components/game/GameSection.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

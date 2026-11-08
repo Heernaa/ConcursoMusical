@@ -8,6 +8,7 @@ import InputNombre from '@/components/game/InputNombre.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import GameSection from '@/components/game/GameSection.vue'
+import JuegoView from './JuegoView.vue'
 
 // TODO: nombre de la ruta de la vista del juego, cuando exista
 const RUTA_PARTIDA = 'partida'
@@ -83,7 +84,7 @@ function comenzar() {
     </section>
   </main>
   <main v-else>
-    <GameSection />
+    <JuegoView />
   </main>
 </template>
 
