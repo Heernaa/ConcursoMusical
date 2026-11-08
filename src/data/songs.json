@@ -1,0 +1,67 @@
+{
+  "songs": [
+    {
+      "title": "Sueño Permantente",
+      "artist": "Sticky M.A. feat. Roomtrash6",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/suenoPermantente.png",
+      "src": "/music/Sticky M.A. & roomtrash6 - Sueño Permanente.mp3"
+    },
+    {
+      "title": "Carretera (Bonus Track)",
+      "artist": "Agorazein",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/carretera.jpg",
+      "src": "/music/Agorazein - Carretera (Audio Oficial).mp3"
+    },
+    {
+      "title": "La Maldición de Stickson",
+      "artist": "Sticky M.A.",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/lmds.png",
+      "src": "/music/Sticky M.A. - La Maldición de Stickson.mp3"
+    },
+    {
+      "title": "Adrenocromo",
+      "artist": "Sticky M.A.",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/adrenocromo.png",
+      "src": "/music/Sticky M.A. - Adrenocromo.mp3"
+    },
+    {
+      "title": "Lunes feriadooOoOO",
+      "artist": "Akriila",
+      "artistImg": "/artists/akriila.webp",
+      "trackImg": "/songsImg/lunesferiadooOoOO.png",
+      "src": "/music/Akriila - Lunes feriadooOOoO.mp3"
+    },
+    {
+      "title": "Moriría y moriría",
+      "artist": "Akriila",
+      "artistImg": "/artists/akriila.webp",
+      "trackImg": "/songsImg/moririaymoriria.png",
+      "src": "/music/Akriila - Moriría y moriría.mp3"
+    },
+    {
+      "title": "Kariñosa",
+      "artist": "Guxo",
+      "artistImg": "/artists/guxo.jpg",
+      "trackImg": "/songsImg/kariñosa.png",
+      "src": "/music/Guxo - Kariñosa.mp3"
+    },
+    {
+      "title": "Sin un plan",
+      "artist": "Bon Calso",
+      "artistImg": "/artists/bon_calso.jpg",
+      "trackImg": "/songsImg/sinUnPlan.png",
+      "src": "/music/Bon Calso - Sin Un Plan.mp3"
+    },
+    {
+      "title": "To pue' ser",
+      "artist": "Agorazein, Sticky M.A.",
+      "artistImg": "/artists/sticky.jpg",
+      "trackImg": "/songsImg/to_pue_ser.jpg",
+      "src": "/music/Agorazein - To Pue' Ser (Audio Oficial).mp3"
+    }
+  ]
+}

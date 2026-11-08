@@ -1,16 +1,14 @@
 <!-- Estados: default · hover · active (pressed) · focus-visible · disabled. Slot #icono: flecha por defecto -->
 
 <script setup>
-import { RouterLink } from 'vue-router';
-
+import { RouterLink } from 'vue-router'
 
 defineProps({
   linkTo: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 })
-
 </script>
 
 <template>
@@ -24,13 +22,16 @@ defineProps({
 @reference '../../assets/main.css';
 
 .secundario {
-  @apply flex h-12 cursor-pointer items-center gap-3 border-2 border-verde-primario bg-negro px-6 font-titulo text-boton text-verde-primario uppercase;
+  @apply flex h-12 cursor-pointer items-center gap-3 border border-verde-primario bg-negro px-6 font-titulo text-boton text-verde-primario uppercase;
+  border-width: round(calc(2 * var(--u, 1px)), 1px);
 }
 .secundario:hover {
-  @apply border-magenta-secundario text-magenta-secundario shadow-[0_0_16px_rgba(234,51,214,0.5)];
+  @apply border-magenta-secundario text-magenta-secundario;
+  box-shadow: 0 0 calc(16 * var(--u, 1px)) rgba(234, 51, 214, 0.5);
 }
 .secundario:focus-visible {
-  @apply border-blanco shadow-[0_0_0_3px_#ea33d6] outline-none;
+  @apply border-blanco outline-none;
+  box-shadow: 0 0 0 calc(3 * var(--u, 1px)) #ea33d6;
 }
 .secundario:active {
   @apply border-verde-oscuro bg-verde-primario text-negro shadow-none;
@@ -40,6 +41,7 @@ defineProps({
 }
 
 .flecha {
-  @apply text-[16px] leading-none from-magenta-secundario;
+  @apply leading-none from-magenta-secundario;
+  font-size: calc(16 * var(--u, 1px));
 }
 </style>

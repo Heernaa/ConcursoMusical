@@ -1,6 +1,20 @@
+<script setup>
+defineProps({
+  // Alto y ancho en px. Las capas (glitch, cuerpo, pico) se estiran con la barra.
+  alto: {
+    type: Number,
+    default: 240,
+  },
+  ancho: {
+    type: Number,
+    default: 16,
+  },
+})
+</script>
+
 <!-- Barra Frecuencia / RiVERLAND. Decorativa. -->
 <template>
-  <div class="barra" aria-hidden="true">
+  <div class="barra" :style="{ height: `${alto}px`, width: `${ancho}px` }" aria-hidden="true">
     <div class="glitch-magenta"></div>
     <div class="glitch-morado"></div>
     <div class="cuerpo"></div>
@@ -17,25 +31,25 @@
 @reference '../../assets/main.css';
 
 .barra {
-  @apply relative h-60 w-4;
+  @apply relative shrink-0;
 }
 .glitch-magenta {
-  @apply absolute top-3.75 bottom-0 -left-0.75 w-4 bg-magenta-secundario opacity-80;
+  @apply absolute top-3.75 bottom-0 -left-0.75 w-full bg-magenta-secundario opacity-80;
 }
 .glitch-morado {
-  @apply absolute top-1.75 bottom-0 left-0.75 w-4 bg-morado-terciario opacity-85;
+  @apply absolute top-1.75 bottom-0 left-0.75 w-full bg-morado-terciario opacity-85;
 }
 .cuerpo {
-  @apply absolute top-2.5 bottom-0 left-0 w-4 bg-linear-to-b from-verde-primario to-verde-oscuro shadow-[0_0_12px_rgba(117,251,77,0.45)];
+  @apply absolute top-2.5 bottom-0 left-0 w-full bg-linear-to-b from-verde-primario to-verde-oscuro shadow-[0_0_12px_rgba(117,251,77,0.45)];
 }
 .pico {
-  @apply absolute top-0 left-0 h-1 w-4 bg-blanco;
+  @apply absolute top-0 left-0 h-1 w-full bg-blanco;
 }
 .corte {
-  @apply absolute top-[29.17%] bottom-[65.83%] left-0 w-4;
+  @apply absolute top-[29.17%] bottom-[65.83%] left-0 w-full;
 }
 .hueco {
-  @apply absolute top-0 left-0 h-1 w-4 bg-negro;
+  @apply absolute top-0 left-0 h-1 w-full bg-negro;
 }
 .desplazado {
   @apply absolute top-1.25 left-1.75 h-1.5 w-4 bg-magenta-secundario;

@@ -2,19 +2,30 @@
 import { RouterLink } from 'vue-router'
 
 defineProps({
+  // Nombre de la ruta. Si no se pasa, se renderiza un <button> (p. ej. para enviar un formulario).
   linkTo: {
     type: String,
-    required: true,
+    default: '',
+  },
+  // Tipo del <button> cuando no hay linkTo
+  type: {
+    type: String,
+    default: 'button',
   },
 })
 </script>
 
 <!-- Estados: default · hover · active (pressed) · focus-visible · disabled -->
 <template>
-  <RouterLink :to="{ name: linkTo }" class="primario">
+  <component
+    :is="linkTo ? RouterLink : 'button'"
+    :to="linkTo ? { name: linkTo } : undefined"
+    :type="linkTo ? undefined : type"
+    class="primario"
+  >
     <span class="etiqueta"><slot>Participar</slot></span>
     <span class="flecha">→</span>
-  </RouterLink>
+  </component>
 </template>
 
 <style scoped>

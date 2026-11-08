@@ -4,15 +4,19 @@
 
 ### Template
 
-- [ ] Crear el HTML de la página
+- [x] Crear el HTML de la página
 
 ### Style
 
-- [ ] Ajustar los estilos para construir la página
+- [x] Ajustar los estilos para construir la página
 
 ### Script 
 
-- [ ] Cargar JSON para leer información del ranking
+- [x] Cargar JSON para leer información del ranking
   - [x] **IF** Cargando --> Cargando...
   - [x] **ELSE-IF** JSON empty --> Cargar página **VACIA**
-  - [ ] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 (v-for)
+  - [x] **ELSE** --> Cargar página con las puntuaciones existentes, hasta un máximo de 10 (v-for)
+
+## Jugar
+
+- [ ] Pensar la forma de guardar el nombre y cambiar la vista a la de juego real
