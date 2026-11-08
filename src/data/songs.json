@@ -125,7 +125,40 @@
       "artist": "Sticky M.A.",
       "artistImg": "/artists/sticky.jpg",
       "trackImg": "/songsImg/adrenocromo.png",
-      "src": "/music/Sticky M.A. - Adrenocromo.mp3"
+      "src": "/music/Sticky M.A. - Adrenocromo.mp3",
+      "opciones": [
+        {
+          "nombre": "Adrenocromo",
+          "artistas": "Sticky M.A.",
+          "correcta": true
+        },
+        {
+          "nombre": "La Maldición de Stickson",
+          "artistas": "Sticky M.A.",
+          "correcta": false
+        },
+        {
+          "nombre": "YanoaY",
+          "artistas": "Sticky M.A. & Royce Rolo",
+          "correcta": false
+        },
+        {
+          "nombre": "Sueño Permanente",
+          "artistas": "Sticky M.A. & Roomtrash6",
+          "correcta": false
+        },
+        {
+          "nombre": "Carretera (Bonus Track)",
+          "artistas": "Agorazein",
+          "correcta": false
+        },
+        {
+          "nombre": "Kink Kong",
+          "artistas": "Agorazein",
+          "correcta": false
+        }
+      ],
+      "pista": "El título es el nombre del compuesto que resulta de oxidar la adrenalina"
     },
     {
       "title": "Lunes feriadooOoOO",

@@ -125,7 +125,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
     <div class="acciones">
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
-        <SecondaryButton>Saltar</SecondaryButton>
+        <SecondaryButton @click="indice++">Saltar</SecondaryButton>
         <PrimaryButton>Confirmar respuesta</PrimaryButton>
       </div>
     </div>
