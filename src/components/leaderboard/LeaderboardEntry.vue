@@ -23,14 +23,24 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  // Tiempo total en segundos
+  // Tiempo total en segundos (solo se usa en el detalle por defecto)
   tiempo: {
     type: Number,
-    required: true,
+    default: 0,
   },
   puntos: {
     type: Number,
     required: true,
+  },
+  // Sustituye al detalle "N/10 aciertos · Ns" (p. ej. en el resultado: "7/10 aciertos · racha x4")
+  detalle: {
+    type: String,
+    default: '',
+  },
+  // Muestra la entrada siempre en estado Hover (Figma: Estado=Hover), p. ej. para "tu puesto"
+  destacada: {
+    type: Boolean,
+    default: false,
   },
 })
 
@@ -42,7 +52,7 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
 
 <!-- Leaderboard Entry / B — Ecualizador. Variante según `posicion` (1º, 2º, 3º, resto). Estados: default · hover -->
 <template>
-  <li class="entrada" :class="podio ? ['podio', podio.acento] : 'resto'">
+  <li class="entrada" :class="[podio ? ['podio', podio.acento] : 'resto', { destacada }]">
     <div class="rango">
       <span class="numero">{{ posicionTexto }}</span>
     </div>
@@ -50,7 +60,7 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
     <div class="jugador">
       <span v-if="podio" class="etiqueta">{{ podio.etiqueta }}</span>
       <span class="nombre">{{ nombre }}</span>
-      <span class="detalle">{{ aciertos }}/10 aciertos · {{ tiempo }}s</span>
+      <span class="detalle">{{ detalle || `${aciertos}/10 aciertos · ${tiempo}s` }}</span>
     </div>
 
     <BarrasEcualizador class="ecualizador" :aciertos="aciertos" :compacto="!podio" />
@@ -109,7 +119,8 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
 .podio {
   @apply border-l-2 border-(--acento) bg-linear-to-r from-(--acento)/18 to-transparent py-4;
 }
-.podio:hover {
+.podio:hover,
+.podio.destacada {
   /* El borde crece 2px → 6px; el padding compensa para que el contenido no se mueva */
   @apply border-l-6 from-(--acento)/42 pl-5;
 }
@@ -119,7 +130,8 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
 .podio .numero {
   @apply text-display text-(--acento);
 }
-.podio:hover .numero {
+.podio:hover .numero,
+.podio.destacada .numero {
   text-shadow: 0 0 18px color-mix(in srgb, var(--acento) 90%, transparent);
 }
 .podio .etiqueta {
@@ -139,7 +151,8 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
 .resto {
   @apply border-b border-gris-borde py-3.5;
 }
-.resto:hover {
+.resto:hover,
+.resto.destacada {
   @apply border-l-4 border-b-transparent border-l-verde-primario bg-linear-to-r from-morado-terciario/40 to-transparent pl-5;
 }
 .resto .rango {
@@ -149,7 +162,8 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
   @apply text-[32px]/[1.1] tracking-[0.02em] text-transparent;
   -webkit-text-stroke: 1px var(--color-blanco);
 }
-.resto:hover .numero {
+.resto:hover .numero,
+.resto.destacada .numero {
   @apply text-verde-primario;
   -webkit-text-stroke-color: transparent;
   text-shadow: 0 0 12px rgba(117, 251, 77, 0.6);
@@ -160,7 +174,8 @@ const puntosTexto = computed(() => String(props.puntos).replace(/\B(?=(\d{3})+(?
 .resto .ecualizador {
   @apply text-morado-terciario;
 }
-.resto:hover .ecualizador {
+.resto:hover .ecualizador,
+.resto.destacada .ecualizador {
   @apply text-verde-primario;
 }
 .resto .puntos {
