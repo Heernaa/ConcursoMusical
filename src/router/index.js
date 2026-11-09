@@ -6,6 +6,7 @@ import JugarView from '@/views/JugarView.vue'
 import JuegoView from '@/views/JuegoView.vue'
 import LeaderboardPreviewView from '@/views/LeaderboardPreviewView.vue'
 import LeaderboardView from '@/views/LeaderboardView.vue'
+import ResultadoView from '@/views/ResultadoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,19 @@ const router = createRouter({
           return { name: 'jugar' }
         }
       },
+    },
+    {
+      path: '/resultados',
+      name: 'resultados',
+      component: ResultadoView,
+/*      beforeEnter: () => {
+        const jugador = useJugadorStore()
+        if (jugador.nombre === '')
+        {
+        return { name: 'jugar' }
+        }
+      }
+*/
     },
     { path: '/', name: 'home', component: LandingView },
   ],
