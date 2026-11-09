@@ -66,12 +66,12 @@ function estadoOpcion(opcion) {
     if (seleccionada.value === null) return 'default'
     return (seleccionada.value == opcion.nombre) ? 'seleccionada' : 'default'
   } else {
-    if (seleccionada.value !== null && opcion.nombre != seleccionada.value) {
+    if (opcion.nombre != seleccionada.value) {
       return 'deshabilitada'
-    }
-    return 'seleccionada'
+    } else if (opcion.correcta) {
+      return 'correcta'
+    } else return 'incorrecta'
   }
-
 }
 
 function confirmarSeleccion() {
