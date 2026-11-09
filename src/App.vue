@@ -12,5 +12,7 @@ import NavBar from './components/navigation/NavBar.vue'
 <style scoped>
 .contenedor {
   @apply flex min-h-screen flex-col;
+  /* Las vistas miden el ancho con cqw (ancho sin la barra de scroll) en vez de vw (la incluye) */
+  container-type: inline-size;
 }
 </style>

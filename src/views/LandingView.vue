@@ -52,7 +52,7 @@ useGlitchText(heroTitle)
 @reference '../assets/main.css';
 
 main {
-  @apply relative top-0 left-0 flex flex-col gap-0 min-w-screen inline-flex justify-center items-center;
+  @apply relative top-0 left-0 flex flex-col gap-0 w-full justify-center items-center;
 }
 
 h1 {

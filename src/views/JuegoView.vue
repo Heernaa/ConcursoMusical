@@ -41,7 +41,7 @@ const cancion = computed(() => canciones.value[indice.value])
 console.log(cancion)
 
 const opciones = computed(() => cancion.value?.opciones ?? [])
-console.log({"Opciones": opciones})
+console.log({ Opciones: opciones })
 
 const opcionCorrecta = computed(() => opciones.value.find((opcion) => opcion.correcta))
 const opcionesIncorrectas = computed(() => opciones.value.filter((opcion) => !opcion.correcta))
@@ -50,7 +50,33 @@ function barajar(array) {
   return [...array].sort(() => Math.random() - 0.5)
 }
 
-const opcionesPreguntas = computed(() => barajar([opcionCorrecta.value, ...barajar(opcionesIncorrectas.value).slice(0,3)]))
+const opcionesPreguntas = computed(() =>
+  barajar([opcionCorrecta.value, ...barajar(opcionesIncorrectas.value).slice(0, 3)]),
+)
+
+const seleccionada = ref(null)
+const seleccionConfirmada = ref(false)
+
+function seleccionar(opcion) {
+  seleccionada.value = opcion.nombre
+}
+
+function estadoOpcion(opcion) {
+  if (seleccionConfirmada.value === false) {
+    if (seleccionada.value === null) return 'default'
+    return (seleccionada.value == opcion.nombre) ? 'seleccionada' : 'default'
+  } else {
+    if (seleccionada.value !== null && opcion.nombre != seleccionada.value) {
+      return 'deshabilitada'
+    }
+    return 'seleccionada'
+  }
+
+}
+
+function confirmarSeleccion() {
+  seleccionConfirmada.value = true
+}
 
 watch(opcionCorrecta, (valor) => {
   console.log('correcta:', valor)
@@ -62,15 +88,18 @@ watch(opcionesPreguntas, (valor) => {
   console.log('opciones:', valor)
 })
 
-const segmentos = computed(() => segmentosBase.value.map((segmento, i) => {
-if (i === indice.value) {
-  return 'actual'
-} else if (i < indice.value) {
-  return 'completado'
-} else {
-  return 'pendiente'
-}
-}))
+const segmentos = computed(() =>
+  segmentosBase.value.map((segmento, i) => {
+    if (i === indice.value) {
+      return 'actual'
+    } else if (i < indice.value) {
+      return 'completado'
+    } else {
+      return 'pendiente'
+    }
+  }),
+)
+
 const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
@@ -89,24 +118,15 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
   <main v-else class="juego">
     <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="puntos" />
 
-    <ProgresoJuego
-      :pregunta="preguntaActual"
-      :porcentaje="porcentajeActual"
-      :segmentos="segmentos"
-    />
+    <ProgresoJuego :pregunta="preguntaActual" :porcentaje="porcentajeActual" :segmentos="segmentos" />
 
     <section class="escenario">
       <div class="numero-pregunta">
         <p class="numero">{{ cancionActual }}</p>
         <p class="total">de 10 temas</p>
       </div>
-      <ReproductorFragmento
-        class="reproductor"
-        estado="reproduciendo"
-        tiempo="0:02 / 0:05"
-        ayuda="Escuchando… ¡atento al estribillo!"
-        :progreso="40"
-      />
+      <ReproductorFragmento class="reproductor" estado="reproduciendo" tiempo="0:02 / 0:05"
+        ayuda="Escuchando… ¡atento al estribillo!" :progreso="40" />
     </section>
 
     <div class="pregunta">
@@ -115,18 +135,18 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
     </div>
 
     <div class="opciones">
-      <OpcionRespuesta v-for="(opcion, i) in opcionesPreguntas"
-        :key="opcion.nombre"
-        :letra="String.fromCharCode(65 + i)"
-        :respuesta="opcion.nombre"
-      />
+      <OpcionRespuesta v-for="(opcion, i) in opcionesPreguntas" :key="opcion.nombre"
+        :letra="String.fromCharCode(65 + i)" :respuesta="opcion.nombre" :estado="estadoOpcion(opcion)"
+        @click="seleccionar(opcion)" />
+
     </div>
+
 
     <div class="acciones">
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
-        <SecondaryButton @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton>Confirmar respuesta</PrimaryButton>
+        <SecondaryButton :disabled="indice >= 9" @click="indice++">Saltar</SecondaryButton>
+        <PrimaryButton @click="confirmarSeleccion()">Confirmar respuesta</PrimaryButton>
       </div>
     </div>
   </main>
@@ -144,17 +164,21 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 .escenario {
   @apply flex items-center gap-12 overflow-hidden border-2 border-magenta-secundario bg-linear-to-r from-morado-terciario to-negro px-12 py-10 shadow-bloque-magenta-12 max-lg:flex-col max-lg:items-start max-sm:px-6;
 }
+
 .numero-pregunta {
   @apply flex shrink-0 flex-col items-start font-titulo whitespace-nowrap uppercase;
 }
+
 /* 150 px en Figma: no hay token de main.css de ese tamaño */
 .numero {
   @apply font-titulo leading-none tracking-[0.02em] text-verde-primario;
   font-size: calc(150 * var(--u, 1px));
 }
+
 .total {
   @apply font-titulo text-boton text-blanco;
 }
+
 .reproductor {
   @apply min-w-0 flex-1 max-lg:w-full max-sm:flex-col max-sm:items-start;
 }
@@ -163,9 +187,11 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 .pregunta {
   @apply flex items-end justify-between gap-6 max-md:flex-col max-md:items-start;
 }
+
 .titulo {
   @apply font-cuerpo text-display font-black whitespace-nowrap text-blanco uppercase max-sm:text-h1;
 }
+
 .indicacion {
   @apply font-cuerpo text-cuerpo font-light text-blanco/60;
 }
@@ -179,9 +205,11 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 .acciones {
   @apply flex items-center justify-between gap-6 pt-2 max-md:flex-col max-md:items-stretch;
 }
+
 .nota {
   @apply font-cuerpo text-base/[1.4] font-bold text-blanco/60;
 }
+
 .botones {
   @apply flex items-start gap-4 max-sm:flex-col max-sm:items-stretch;
 }

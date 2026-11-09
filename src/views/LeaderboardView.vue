@@ -32,7 +32,7 @@ onMounted(async () => {
 @reference "../assets/main.css";
 
 .leaderboard {
-  @apply min-w-screen min-h-full flex flex-col justify-center items-center py-14;
+  @apply w-full min-h-full flex flex-col justify-center items-center py-14;
 }
 
 h1 {

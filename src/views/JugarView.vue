@@ -90,7 +90,7 @@ function comenzar() {
 /*
   Escalado relativo al diseño de Figma (frame de 1280 × 813: navbar de 88 px + cuerpo de 725 px).
   --u equivale a "1 px de Figma". En pantallas grandes vale lo que haga falta para que el cuerpo
-  quepa entero, tanto a lo ancho como a lo alto (a 1280 × 813 vale exactamente 1px; en 2K, ~1.7px).
+  quepa entero, tanto a lo ancho (cqw: ancho de App.vue sin la barra de scroll) como a lo alto (a 1280 × 813 vale exactamente 1px; en 2K, ~1.7px).
   Tailwind 4 calcula todos los espaciados (p-*, gap-*, w-*, size-*...) como var(--spacing) × N y
   los tamaños de texto del tema como var(--text-*), así que redefinirlos aquí escala toda la vista
   (incluidos los botones y la barra de frecuencia) sin tocar cada clase.
@@ -112,7 +112,7 @@ function comenzar() {
     height: calc(100svh - var(--alto-navbar));
     overflow: hidden;
     /* 727 en vez de 725: margen para los redondeos de interlineado, así nada se corta */
-    --u: min(calc(100vw / 1280), calc((100svh - var(--alto-navbar)) / 727));
+    --u: min(calc(100cqw / 1280), calc((100svh - var(--alto-navbar)) / 727));
     --spacing: calc(var(--u) * 4);
     --text-boton: calc(14 * var(--u));
     --text-base: calc(16 * var(--u));

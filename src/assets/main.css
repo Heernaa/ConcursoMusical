@@ -175,7 +175,7 @@
 /* Estilos globales de la página */
 @layer base {
   body {
-    @apply bg-linear-to-b bg-linear-270  from-indigo-950 to-black  text-blanco font-cuerpo font-light text-cuerpo min-h-screen min-w-screen m-0 p-0;
+    @apply bg-linear-to-b bg-linear-270  from-indigo-950 to-black  text-blanco font-cuerpo font-light text-cuerpo min-h-screen m-0 p-0;
   }
   h1 {
     @apply text-h1 font-titulo uppercase;

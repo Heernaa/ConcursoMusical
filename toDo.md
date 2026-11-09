@@ -35,7 +35,11 @@
     - [ ] tiempo --> Dinamico 
     - [ ] ayuda --> Pistas personalizadas
   - [ ] <div class="opciones">
-    - [ ] <OpcionRespuesta/> --> Dinámica
+    - [x] <OpcionRespuesta/> --> Dinámica
+    - [x] Saltar --> El botón aumenta el indice++
+    - [ ] Confirmar
+      - [x] Deshabilita las opciones no escojidas
+      - [ ] Comprueba si la opcion seleccionada es la correcta
 
 **Cambios necesarios**
 
@@ -47,7 +51,3 @@
     - [ ] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
   - [x] 1 pista personalizada
 
-
-- Sticky --> 1 
-- AGZ --> 1 
-- Akriila --> 1
