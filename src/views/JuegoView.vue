@@ -10,10 +10,10 @@ import { onMounted, ref, computed, watch } from 'vue'
 
 const jugador = useJugadorStore()
 
-// const PUNTOS_ACIERTO = 10
+const PUNTOS_ACIERTO = 10
 const NUMERO_PREGUNTAS = 10
-// const aciertos = ref(0)
-const puntos = ref(0)
+const aciertos = ref(0)
+
 
 const segmentosBase = ref(Array(NUMERO_PREGUNTAS).fill('pendiente'))
 
@@ -74,6 +74,15 @@ function estadoOpcion(opcion) {
   }
 }
 
+const comprobado = ref(false)
+
+function comprobarCorrecta() {
+  if (seleccionada.value !== null && seleccionada.value == opcionCorrecta.value.nombre) {
+    aciertos.value++
+  }
+  comprobado.value = true
+}
+
 function confirmarSeleccion() {
   seleccionConfirmada.value = true
 }
@@ -91,6 +100,7 @@ watch(opcionesPreguntas, (valor) => {
 watch(indice, () => {
   seleccionada.value = null
   seleccionConfirmada.value = false
+  comprobado.value = false
 })
 
 const segmentos = computed(() =>
@@ -105,6 +115,7 @@ const segmentos = computed(() =>
   }),
 )
 
+const puntos = computed(() => aciertos.value * PUNTOS_ACIERTO)
 const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
@@ -151,7 +162,8 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
         <SecondaryButton :disabled="indice >= 9" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton @click="confirmarSeleccion()">Confirmar respuesta</PrimaryButton>
+        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta()">Confirmar respuesta
+        </PrimaryButton>
       </div>
     </div>
   </main>

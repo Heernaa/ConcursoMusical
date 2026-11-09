@@ -37,9 +37,19 @@
   - [ ] <div class="opciones">
     - [x] <OpcionRespuesta/> --> Dinámica
     - [x] Saltar --> El botón aumenta el indice++
-    - [ ] Confirmar
+    - [x] Confirmar
       - [x] Deshabilita las opciones no escojidas
-      - [ ] Comprueba si la opcion seleccionada es la correcta
+      - [x] Comprueba si la opcion seleccionada es la correcta
+        - [x] Deshabilita el botón de comprobar si ya se ha hecho
+    - [ ] Ver resultados --> Botón con redireccionamiento a vista de resultados
+  - [ ] Store --> Crear store con **Pinia** donde meter los datos de la partida (Solo si se completa) | Store de jugador ? nuevo ?
+- [ ] <Resultados />
+  - [ ] Recolección de datos con el store de 'player'
+    - [ ] Aciertos
+    - [ ] Lista de aciertos y fallos --> Lista con canciiones y si esta ha sido acierto o fallo { "cancion": cancion, "acierto": true/false }
+    - [ ] Mejor racha --> Contar en la lista de aciertos y fallos, los aciertos consecutivos
+
+
 
 **Cambios necesarios**
 
