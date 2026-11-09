@@ -88,6 +88,11 @@ watch(opcionesPreguntas, (valor) => {
   console.log('opciones:', valor)
 })
 
+watch(indice, () => {
+  seleccionada.value = null
+  seleccionConfirmada.value = false
+})
+
 const segmentos = computed(() =>
   segmentosBase.value.map((segmento, i) => {
     if (i === indice.value) {
