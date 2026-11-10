@@ -54,10 +54,13 @@ const opcionesPreguntas = computed(() =>
 )
 
 const seleccionada = ref(null)
+const seleccionadaObject = ref(null)
+
 const seleccionConfirmada = ref(false)
 
 function seleccionar(opcion) {
   seleccionada.value = opcion.nombre
+  seleccionadaObject.value = opcion
 }
 
 function estadoOpcion(opcion) {
@@ -100,6 +103,11 @@ watch(indice, () => {
   seleccionada.value = null
   seleccionConfirmada.value = false
   comprobado.value = false
+})
+
+watch(jugador.listaAciertos, () => {
+  console.log('listaAciertos:', jugador.listaAciertos)
+  console.log('numAciertos', jugador.numAciertos)
 })
 
 const segmentos = computed(() =>
@@ -161,7 +169,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
         <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionada)">Confirmar respuesta
+        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar respuesta
         </PrimaryButton>
       </div>
     </div>
