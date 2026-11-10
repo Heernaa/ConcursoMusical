@@ -79,6 +79,7 @@ const comprobado = ref(false)
 function comprobarCorrecta() {
   if (seleccionada.value !== null && seleccionada.value == opcionCorrecta.value.nombre) {
     aciertos.value++
+    jugador.sumarAcierto()
   }
   comprobado.value = true
 }
@@ -162,7 +163,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
         <SecondaryButton :disabled="indice >= 9" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta()">Confirmar respuesta
+        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionada)">Confirmar respuesta
         </PrimaryButton>
       </div>
     </div>
