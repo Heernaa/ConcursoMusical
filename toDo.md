@@ -41,8 +41,8 @@
       - [x] Deshabilita las opciones no escojidas
       - [x] Comprueba si la opcion seleccionada es la correcta
         - [x] Deshabilita el botón de comprobar si ya se ha hecho
-    - [ ] Ver resultados --> Botón con redireccionamiento a vista de resultados
-  - [ ] Store --> Crear store con **Pinia** donde meter los datos de la partida (Solo si se completa) | Store de jugador ? nuevo ?
+    - [ ] Ver resultados --> Botón con redireccionamiento a vista de resultados, solo disponible tras confirmar la selección de la ultima canción
+  - [ ] Store --> Crear store con **Pinia** donde meter los datos de la partida
 - [ ] <Resultados />
   - [ ] Recolección de datos con el store de 'player'
     - [ ] Aciertos
