@@ -12,7 +12,6 @@ const jugador = useJugadorStore()
 
 const PUNTOS_ACIERTO = 10
 const NUMERO_PREGUNTAS = 10
-const aciertos = ref(0)
 
 
 const segmentosBase = ref(Array(NUMERO_PREGUNTAS).fill('pendiente'))
@@ -78,7 +77,6 @@ const comprobado = ref(false)
 
 function comprobarCorrecta() {
   if (seleccionada.value !== null && seleccionada.value == opcionCorrecta.value.nombre) {
-    aciertos.value++
     jugador.sumarAcierto()
   }
   comprobado.value = true
@@ -116,7 +114,7 @@ const segmentos = computed(() =>
   }),
 )
 
-const puntos = computed(() => aciertos.value * PUNTOS_ACIERTO)
+const puntos = computed(() => jugador.numAciertos * PUNTOS_ACIERTO)
 const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
@@ -162,7 +160,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
     <div class="acciones">
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
-        <SecondaryButton :disabled="indice >= 9" @click="indice++">Saltar</SecondaryButton>
+        <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++">Saltar</SecondaryButton>
         <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionada)">Confirmar respuesta
         </PrimaryButton>
       </div>
