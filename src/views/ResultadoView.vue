@@ -29,7 +29,9 @@ import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
         <p class="subtitulo">Has adivinado 7 de las 10 canciones del setlist</p>
         <div class="ecualizador" aria-hidden="true">
           <BarraFrecuencia
-            v-for="(alto, i) in [24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66]"
+            v-for="(alto, i) in [
+              24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66,
+            ]"
             :key="i"
             :alto="alto"
             :ancho="10"
@@ -81,13 +83,23 @@ import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
       <ol class="resumen">
         <ResumenRespuesta numero="01" cancion="Someone Like You" artista="Adele" />
         <ResumenRespuesta numero="02" cancion="Bad Guy" artista="Billie Eilish" />
-        <ResumenRespuesta numero="03" cancion="Rolling in the Deep" artista="Adele" resultado="fallo" />
+        <ResumenRespuesta
+          numero="03"
+          cancion="Rolling in the Deep"
+          artista="Adele"
+          resultado="fallo"
+        />
         <ResumenRespuesta numero="04" cancion="Blinding Lights" artista="The Weeknd" />
         <ResumenRespuesta numero="05" cancion="Shape of You" artista="Ed Sheeran" />
         <ResumenRespuesta numero="06" cancion="Levitating" artista="Dua Lipa" />
         <ResumenRespuesta numero="07" cancion="Uptown Funk" artista="Mark Ronson ft. Bruno Mars" />
         <ResumenRespuesta numero="08" cancion="Despacito" artista="Luis Fonsi" resultado="fallo" />
-        <ResumenRespuesta numero="09" cancion="Bohemian Rhapsody" artista="Queen" resultado="fallo" />
+        <ResumenRespuesta
+          numero="09"
+          cancion="Bohemian Rhapsody"
+          artista="Queen"
+          resultado="fallo"
+        />
         <ResumenRespuesta numero="10" cancion="Flowers" artista="Miley Cyrus" />
       </ol>
     </section>
