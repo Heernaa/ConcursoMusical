@@ -21,6 +21,7 @@ const jugador = useJugadorStore()
 console.log('Respuestas', jugador.listaAciertos)
 console.log(jugador.numAciertos)
 
+const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
 
 </script>
 
@@ -28,7 +29,7 @@ console.log(jugador.numAciertos)
 <template>
   <main class="resultado">
     <ProgresoJuego
-      pregunta="Partida completa · 10 / 10"
+      pregunta="Partida completa · 10/ 10"
       porcentaje="100%"
       :segmentos="Array(10).fill('completado')"
     />
@@ -36,8 +37,8 @@ console.log(jugador.numAciertos)
     <section class="escenario">
       <div class="mensaje">
         <p class="etiqueta">Partida terminada</p>
-        <h1 class="titulo">¡Bien jugado, Javi!</h1>
-        <p class="subtitulo">Has adivinado 7 de las 10 canciones del setlist</p>
+        <h1 class="titulo">¡Bien jugado, {{ jugador.nombre }}!</h1>
+        <p class="subtitulo">Has adivinado {{ jugador.numAciertos }} de las 10 canciones del setlist</p>
         <div class="ecualizador" aria-hidden="true">
           <BarraFrecuencia
             v-for="(alto, i) in [24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66]"
@@ -51,19 +52,19 @@ console.log(jugador.numAciertos)
       </div>
 
       <div class="puntuacion">
-        <p class="puntos">70</p>
+        <p class="puntos">{{ puntuacion }}</p>
         <p class="unidad">Puntos totales</p>
       </div>
     </section>
 
     <section class="estadisticas">
       <StepCardVerde>
-        7 / 10
+        {{ jugador.numAciertos }} / 10
         <template #icono><img src="@/assets/icons/diana.svg" alt="" /></template>
         <template #descripcion>Aciertos · 10 puntos por cada uno</template>
       </StepCardVerde>
       <StepCardMagenta>
-        3
+        {{ 10 - jugador.numAciertos }}
         <template #icono><img src="@/assets/icons/cruz-negra.svg" alt="" /></template>
         <template #descripcion>Fallos · sin penalización</template>
       </StepCardMagenta>
@@ -78,10 +79,10 @@ console.log(jugador.numAciertos)
       <ul>
         <LeaderboardEntry
           :posicion="4"
-          nombre="Javi"
-          :aciertos="7"
-          :puntos="70"
-          detalle="7/10 aciertos · racha x4"
+          :nombre="jugador.nombre"
+          :aciertos="jugador.numAciertos"
+          :puntos="puntuacion"
+          :detalle="`${jugador.numAciertos}/10 aciertos · racha x4`"
           destacada
         />
       </ul>
