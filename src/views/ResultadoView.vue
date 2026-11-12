@@ -8,9 +8,20 @@ import LeaderboardEntry from '@/components/leaderboard/LeaderboardEntry.vue'
 import ResumenRespuesta from '@/components/resultado/ResumenRespuesta.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
+import { useJugadorStore } from '@/stores/jugador'
+import { ref, computed, watch } from 'vue'
 
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia) al dinamizarla.
+
+const VALOR_ACIERTO = 10
+
+const jugador = useJugadorStore()
+
+console.log('Respuestas', jugador.listaAciertos)
+console.log(jugador.numAciertos)
+
+
 </script>
 
 <!-- MacBook Air - Resultado V2 — Escenario -->

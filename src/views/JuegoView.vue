@@ -37,10 +37,8 @@ onMounted(async () => {
 })
 
 const cancion = computed(() => canciones.value[indice.value])
-console.log(cancion)
 
 const opciones = computed(() => cancion.value?.opciones ?? [])
-console.log({ Opciones: opciones })
 
 const opcionCorrecta = computed(() => opciones.value.find((opcion) => opcion.correcta))
 const opcionesIncorrectas = computed(() => opciones.value.filter((opcion) => !opcion.correcta))
@@ -89,25 +87,10 @@ function confirmarSeleccion() {
   seleccionConfirmada.value = true
 }
 
-watch(opcionCorrecta, (valor) => {
-  console.log('correcta:', valor)
-})
-watch(opcionesIncorrectas, (valor) => {
-  console.log('incorrectas:', valor)
-})
-watch(opcionesPreguntas, (valor) => {
-  console.log('opciones:', valor)
-})
-
 watch(indice, () => {
   seleccionada.value = null
   seleccionConfirmada.value = false
   comprobado.value = false
-})
-
-watch(jugador.listaAciertos, (value) => {
-  console.log('listaAciertos:', value)
-  console.log('numAciertos', jugador.numAciertos)
 })
 
 const segmentos = computed(() =>
@@ -169,7 +152,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
         <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton v-if="indice < 9 || !comprobado" :disabled="comprobado"
+        <PrimaryButton v-if="indice < 9 || !comprobado" :disabled="comprobado || seleccionada === null"
           @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
           respuesta
         </PrimaryButton>
