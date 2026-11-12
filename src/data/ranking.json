@@ -1,80 +1,8 @@
 [
   {
-    "nombre": "NEONKID",
-    "aciertos": 8,
-    "tiempo": 31,
-    "puntos": 80
-  },
-  {
-    "nombre": "LA_RUBIA",
-    "aciertos": 8,
-    "tiempo": 34,
-    "puntos": 80
-  },
-  {
-    "nombre": "BASSMAN",
-    "aciertos": 8,
-    "tiempo": 29,
-    "puntos": 80
-  },
-  {
-    "nombre": "DJ_LUNA",
-    "aciertos": 7,
-    "tiempo": 38,
-    "puntos": 70
-  },
-  {
-    "nombre": "TRAPQUEEN",
-    "aciertos": 7,
-    "tiempo": 41,
-    "puntos": 70
-  },
-  {
-    "nombre": "ROCKOLA",
-    "aciertos": 6,
-    "tiempo": 44,
-    "puntos": 60
-  },
-  {
-    "nombre": "NEONKID",
-    "aciertos": 6,
-    "tiempo": 31,
-    "puntos": 60
-  },
-  {
-    "nombre": "LA_RUBIA",
-    "aciertos": 6,
-    "tiempo": 34,
-    "puntos": 60
-  },
-  {
-    "nombre": "BASSMAN",
-    "aciertos": 5,
-    "tiempo": 29,
-    "puntos": 50
-  },
-  {
-    "nombre": "DJ_LUNA",
-    "aciertos": 4,
-    "tiempo": 38,
-    "puntos": 40
-  },
-  {
-    "nombre": "TRAPQUEEN",
-    "aciertos": 4,
-    "tiempo": 41,
-    "puntos": 40
-  },
-  {
-    "nombre": "ROCKOLA",
-    "aciertos": 4,
-    "tiempo": 44,
-    "puntos": 40
-  },
-  {
     "nombre": "Heernaa",
-    "aciertos": 10,
+    "aciertos": 9,
     "tiempo": 90,
-    "puntos": 100
+    "puntos": 90
   }
 ]

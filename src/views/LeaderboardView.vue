@@ -21,13 +21,15 @@ onMounted(async () => {
     cargando.value = false
   }
 })
+
+
 </script>
 
 <template>
   <section class="leaderboard">
     <h1 v-if="cargando">Cargando...</h1>
-    <LeaderboardEmpty v-else-if="ranking.length === 0" />
-    <LeaderboardList :entradas="ranking" :jugadores="ranking.length" />
+    <LeaderboardEmpty v-else-if="ranking.length < 1" />
+    <LeaderboardList v-else :entradas="ranking" :jugadores="ranking.length" />
   </section>
 </template>
 
