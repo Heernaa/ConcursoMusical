@@ -1,0 +1,13 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    volumes:
+      - ./src/data:/app/src/data # persiste ranking.json
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
