@@ -41,24 +41,29 @@
       - [x] Deshabilita las opciones no escojidas
       - [x] Comprueba si la opcion seleccionada es la correcta
         - [x] Deshabilita el botón de comprobar si ya se ha hecho
-    - [ ] Ver resultados --> Botón con redireccionamiento a vista de resultados, solo disponible tras confirmar la selección de la ultima canción
+    - [x] Ver resultados --> Botón con redireccionamiento a vista de resultados, solo disponible tras confirmar la selección de la ultima canción
+      - [x] Lanzar petición post contra el endpoint del servidor, para crear nueva entrada en ranking.json
   - [x] Store --> Crear store con **Pinia** donde meter los datos de la partida
   - [x] Boton resultados --> Lleva a resultados, al terminar el juego
 - [ ] <Resultados />
-  - [ ] Recolección de datos con el store de 'player'
+  - [x] Recolección de datos con el store de 'player'
     - [x] Aciertos
     - [x] Lista de aciertos y fallos --> Lista con canciiones y si esta ha sido acierto o fallo { "cancion": cancion, "acierto": true/false }
     - [ ] Mejor racha --> Contar en la lista de aciertos y fallos, los aciertos consecutivos
-
-
+  - [ ] Posición real en el ranking
+    - [ ] Comparar datos del jugador contra los del ranking.json y sacar la posición de los datos coincidentes
+- [ ] <LeaderboardView />
+  - [x] Cargar a través de un endpoint de servidor express 
+ - [ ] Jugador.js (store)
+  - [ ] Reiniciar los datos al terminar de mostrar los datos en <Resultado />
 
 **Cambios necesarios**
 
 - [x] Lista de canciones --> 10 canciones
   - [x] Nombre
   - [x] Artista
-  - [ ] src --> King Kong
+  - [x] src --> King Kong
   - [x] lista de opciones
-    - [ ] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
+    - [x] 6 opciones de respuesta --> 4 elejidas de forma aleatoria, 3 incorrectas y 1 correcta
   - [x] 1 pista personalizada
 
