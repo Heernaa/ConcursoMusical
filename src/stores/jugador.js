@@ -17,7 +17,7 @@ export const useJugadorStore = defineStore('jugador', () => {
   }
 
   function registrarRespuesta(respuesta) {
-    listaAciertos.value.push(respuesta);
+    listaAciertos.value.push(respuesta)
   }
 
   function reiniciar() {

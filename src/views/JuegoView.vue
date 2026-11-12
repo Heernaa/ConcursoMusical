@@ -16,7 +16,6 @@ const jugador = useJugadorStore()
 const PUNTOS_ACIERTO = 10
 const NUMERO_PREGUNTAS = 10
 
-
 const segmentosBase = ref(Array(NUMERO_PREGUNTAS).fill('pendiente'))
 
 const canciones = ref([])
@@ -67,7 +66,7 @@ function seleccionar(opcion) {
 function estadoOpcion(opcion) {
   if (seleccionConfirmada.value === false) {
     if (seleccionada.value === null) return 'default'
-    return (seleccionada.value == opcion.nombre) ? 'seleccionada' : 'default'
+    return seleccionada.value == opcion.nombre ? 'seleccionada' : 'default'
   } else {
     if (opcion.nombre != seleccionada.value) {
       return 'deshabilitada'
@@ -117,21 +116,21 @@ async function guardarPuntuación() {
     const response = await fetch('/api/ranking', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
       },
       body: JSON.stringify({
         nombre: `${jugador.nombre}` ?? '',
         aciertos: jugador.numAciertos,
         tiempo: 90,
-        puntos: puntos.value
-      }
-)    })
+        puntos: puntos.value,
+      }),
+    })
     if (!response.ok) {
       throw new Error('Error de petición')
     }
     const data = await response.json()
     jugador.posicion = data.posicion
-    router.push("/resultados")
+    router.push('/resultados')
     console.log(data)
   } catch (e) {
     console.log(e)
@@ -153,15 +152,24 @@ async function guardarPuntuación() {
   <main v-else class="juego">
     <HeaderJuego titulo="Adivina la canción" :jugador="jugador.nombre" :puntos="puntos" />
 
-    <ProgresoJuego :pregunta="preguntaActual" :porcentaje="porcentajeActual" :segmentos="segmentos" />
+    <ProgresoJuego
+      :pregunta="preguntaActual"
+      :porcentaje="porcentajeActual"
+      :segmentos="segmentos"
+    />
 
     <section class="escenario">
       <div class="numero-pregunta">
         <p class="numero">{{ cancionActual }}</p>
         <p class="total">de 10 temas</p>
       </div>
-      <ReproductorFragmento class="reproductor" estado="reproduciendo" tiempo="0:02 / 0:05"
-        ayuda="Escuchando… ¡atento al estribillo!" :progreso="40" />
+      <ReproductorFragmento
+        class="reproductor"
+        estado="reproduciendo"
+        tiempo="0:02 / 0:05"
+        ayuda="Escuchando… ¡atento al estribillo!"
+        :progreso="40"
+      />
     </section>
 
     <div class="pregunta">
@@ -170,20 +178,31 @@ async function guardarPuntuación() {
     </div>
 
     <div class="opciones">
-      <OpcionRespuesta v-for="(opcion, i) in opcionesPreguntas" :key="opcion.nombre"
-        :letra="String.fromCharCode(65 + i)" :respuesta="opcion.nombre" :estado="estadoOpcion(opcion)"
-        @click="seleccionar(opcion)" />
-
+      <OpcionRespuesta
+        v-for="(opcion, i) in opcionesPreguntas"
+        :key="opcion.nombre"
+        :letra="String.fromCharCode(65 + i)"
+        :respuesta="opcion.nombre"
+        :estado="estadoOpcion(opcion)"
+        @click="seleccionar(opcion)"
+      />
     </div>
-
 
     <div class="acciones">
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
-        <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton v-if="indice < 9 || !comprobado" :disabled="comprobado || seleccionada === null"
-          @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
-          respuesta
+        <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++"
+          >Saltar</SecondaryButton
+        >
+        <PrimaryButton
+          v-if="indice < 9 || !comprobado"
+          :disabled="comprobado || seleccionada === null"
+          @click="
+            (confirmarSeleccion(),
+            comprobarCorrecta(),
+            jugador.registrarRespuesta(seleccionadaObject))
+          "
+          >Confirmar respuesta
         </PrimaryButton>
         <PrimaryButton v-else @click="guardarPuntuación()">Ver resultados</PrimaryButton>
       </div>

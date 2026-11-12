@@ -25,7 +25,6 @@ const listaAciertos = [...jugador.listaAciertos]
 const puntuacion = VALOR_ACIERTO * numAciertos
 
 jugador.reiniciar()
-
 </script>
 
 <!-- MacBook Air - Resultado V2 — Escenario -->
@@ -44,7 +43,9 @@ jugador.reiniciar()
         <p class="subtitulo">Has adivinado {{ numAciertos }} de las 10 canciones del setlist</p>
         <div class="ecualizador" aria-hidden="true">
           <BarraFrecuencia
-            v-for="(alto, i) in [24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66]"
+            v-for="(alto, i) in [
+              24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66,
+            ]"
             :key="i"
             :alto="alto"
             :ancho="10"
@@ -94,9 +95,13 @@ jugador.reiniciar()
     <section class="bloque">
       <h2 class="etiqueta">Resumen de la partida</h2>
       <ol class="resumen">
-        <ResumenRespuesta v-for="(respuesta, i) in listaAciertos" :numero="i+1"
-          :cancion="respuesta.nombre" :artista="respuesta.artistas" :resultado="respuesta.correcta ?
-          'acierto' : 'fallo'"/>
+        <ResumenRespuesta
+          v-for="(respuesta, i) in listaAciertos"
+          :numero="i + 1"
+          :cancion="respuesta.nombre"
+          :artista="respuesta.artistas"
+          :resultado="respuesta.correcta ? 'acierto' : 'fallo'"
+        />
       </ol>
     </section>
 

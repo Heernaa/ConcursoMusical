@@ -37,7 +37,7 @@ const router = createRouter({
       path: '/resultados',
       name: 'resultados',
       component: ResultadoView,
-/*      beforeEnter: () => {
+      /*      beforeEnter: () => {
         const jugador = useJugadorStore()
         if (jugador.nombre === '')
         {
