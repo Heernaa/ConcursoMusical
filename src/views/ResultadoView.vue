@@ -9,7 +9,6 @@ import ResumenRespuesta from '@/components/resultado/ResumenRespuesta.vue'
 import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
-import { ref, computed, watch } from 'vue'
 
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia) al dinamizarla.
@@ -18,10 +17,13 @@ const VALOR_ACIERTO = 10
 
 const jugador = useJugadorStore()
 
-console.log('Respuestas', jugador.listaAciertos)
-console.log(jugador.numAciertos)
+const nombre = jugador.nombre
+const numAciertos = jugador.numAciertos
+const listaAciertos = [...jugador.listaAciertos]
 
-const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
+const puntuacion = VALOR_ACIERTO * numAciertos
+
+jugador.reiniciar()
 
 </script>
 
@@ -37,8 +39,8 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
     <section class="escenario">
       <div class="mensaje">
         <p class="etiqueta">Partida terminada</p>
-        <h1 class="titulo">¡Bien jugado, {{ jugador.nombre }}!</h1>
-        <p class="subtitulo">Has adivinado {{ jugador.numAciertos }} de las 10 canciones del setlist</p>
+        <h1 class="titulo">¡Bien jugado, {{ nombre }}!</h1>
+        <p class="subtitulo">Has adivinado {{ numAciertos }} de las 10 canciones del setlist</p>
         <div class="ecualizador" aria-hidden="true">
           <BarraFrecuencia
             v-for="(alto, i) in [24, 52, 36, 68, 44, 60, 30, 72, 48, 64, 40, 56, 28, 70, 46, 62, 34, 58, 42, 66]"
@@ -59,12 +61,12 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
 
     <section class="estadisticas">
       <StepCardVerde>
-        {{ jugador.numAciertos }} / 10
+        {{ numAciertos }} / 10
         <template #icono><img src="@/assets/icons/diana.svg" alt="" /></template>
         <template #descripcion>Aciertos · 10 puntos por cada uno</template>
       </StepCardVerde>
       <StepCardMagenta>
-        {{ 10 - jugador.numAciertos }}
+        {{ 10 - numAciertos }}
         <template #icono><img src="@/assets/icons/cruz-negra.svg" alt="" /></template>
         <template #descripcion>Fallos · sin penalización</template>
       </StepCardMagenta>
@@ -79,10 +81,10 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
       <ul>
         <LeaderboardEntry
           :posicion="4"
-          :nombre="jugador.nombre"
-          :aciertos="jugador.numAciertos"
+          :nombre="nombre"
+          :aciertos="numAciertos"
           :puntos="puntuacion"
-          :detalle="`${jugador.numAciertos}/10 aciertos · racha x4`"
+          :detalle="`${numAciertos}/10 aciertos · racha x4`"
           destacada
         />
       </ul>
@@ -91,7 +93,7 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
     <section class="bloque">
       <h2 class="etiqueta">Resumen de la partida</h2>
       <ol class="resumen">
-        <ResumenRespuesta v-for="(respuesta, i) in jugador.listaAciertos" :numero="i+1"
+        <ResumenRespuesta v-for="(respuesta, i) in listaAciertos" :numero="i+1"
           :cancion="respuesta.nombre" :artista="respuesta.artistas" :resultado="respuesta.correcta ?
           'acierto' : 'fallo'"/>
 
