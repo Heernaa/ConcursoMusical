@@ -4,5 +4,53 @@
     "aciertos": 9,
     "tiempo": 90,
     "puntos": 90
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 1,
+    "tiempo": 90,
+    "puntos": 10
+  },
+  {
+    "nombre": "Hernandez",
+    "aciertos": 6,
+    "tiempo": 90,
+    "puntos": 60
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 5,
+    "tiempo": 90,
+    "puntos": 50
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 8,
+    "tiempo": 90,
+    "puntos": 80
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 4,
+    "tiempo": 90,
+    "puntos": 40
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 10,
+    "tiempo": 90,
+    "puntos": 100
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 9,
+    "tiempo": 90,
+    "puntos": 90
+  },
+  {
+    "nombre": "Pol",
+    "aciertos": 3,
+    "tiempo": 90,
+    "puntos": 30
   }
 ]

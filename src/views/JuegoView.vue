@@ -7,6 +7,9 @@ import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
 import { onMounted, ref, computed, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const jugador = useJugadorStore()
 
@@ -127,7 +130,9 @@ async function guardarPuntuación() {
       throw new Error('Error de petición')
     }
     const data = await response.json()
-    console.log({entrada: data})
+    jugador.posicion = data.posicion
+    router.push("/resultados")
+    console.log(data)
   } catch (e) {
     console.log(e)
   }
@@ -180,7 +185,7 @@ async function guardarPuntuación() {
           @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
           respuesta
         </PrimaryButton>
-        <PrimaryButton v-else link-to="resultados" @click="guardarPuntuación()">Ver resultados</PrimaryButton>
+        <PrimaryButton v-else @click="guardarPuntuación()">Ver resultados</PrimaryButton>
       </div>
     </div>
   </main>

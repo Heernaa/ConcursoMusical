@@ -31,9 +31,9 @@
 - [ ] <section class="escenario">
   - [x] <p class="numero"> --> Cargar dinámicamente
   - [ ] <ReproductorFragmento />
-    - [ ] estado --> Dinamico
-    - [ ] tiempo --> Dinamico 
-    - [ ] ayuda --> Pistas personalizadas
+    - [ ] estado --> Dinamico Pausa/Reproduciendo
+    - [ ] tiempo --> Dinamico 0-5 Segundos
+    - [ ] Howl --> Musica, usando el src de la cancion actual, reproduciendo 5 segundos aleatorios
   - [ ] <div class="opciones">
     - [x] <OpcionRespuesta/> --> Dinámica
     - [x] Saltar --> El botón aumenta el indice++
@@ -50,12 +50,13 @@
     - [x] Aciertos
     - [x] Lista de aciertos y fallos --> Lista con canciiones y si esta ha sido acierto o fallo { "cancion": cancion, "acierto": true/false }
     - [ ] Mejor racha --> Contar en la lista de aciertos y fallos, los aciertos consecutivos
-  - [ ] Posición real en el ranking
-    - [ ] Comparar datos del jugador contra los del ranking.json y sacar la posición de los datos coincidentes
-- [ ] <LeaderboardView />
+  - [x] Posición real en el ranking
+    - [x] El POST devuelve el indexOf() de la entrada en la lista 
+- [x] <LeaderboardView />
   - [x] Cargar a través de un endpoint de servidor express 
- - [ ] Jugador.js (store)
-  - [ ] Reiniciar los datos al terminar de mostrar los datos en <Resultado />
+ - [x] Jugador.js (store)
+  - [x] Reiniciar los datos al terminar de mostrar los datos en <Resultado /> 
+  - [x] Mutable de posición
 
 **Cambios necesarios**
 

@@ -25,8 +25,12 @@ app.post('/api/ranking', async (req, res) => {
   const ranking = await leerRanking();
   const entrada = { nombre: nombre.trim(), aciertos: aciertos, tiempo: tiempo, puntos: puntos }
   ranking.push(entrada)
+
+  const posicion = [...ranking].sort((a,b) => b.puntos - a.puntos).indexOf(entrada) + 1;
+
+
   await writeFile(RUTA, JSON.stringify(ranking, null, 2))
-  res.status(201).json(entrada)
+  res.status(201).json({...entrada, posicion})
 })
 
 app.listen(port, () => {

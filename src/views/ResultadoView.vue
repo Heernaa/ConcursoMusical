@@ -18,6 +18,7 @@ const VALOR_ACIERTO = 10
 const jugador = useJugadorStore()
 
 const nombre = jugador.nombre
+const posicion = jugador.posicion
 const numAciertos = jugador.numAciertos
 const listaAciertos = [...jugador.listaAciertos]
 
@@ -80,7 +81,7 @@ jugador.reiniciar()
       <h2 class="etiqueta">Tu puesto en el ranking</h2>
       <ul>
         <LeaderboardEntry
-          :posicion="4"
+          :posicion="posicion"
           :nombre="nombre"
           :aciertos="numAciertos"
           :puntos="puntuacion"

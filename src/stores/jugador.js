@@ -6,6 +6,7 @@ export const useJugadorStore = defineStore('jugador', () => {
   const nombre = ref('')
   const numAciertos = ref(0)
   const listaAciertos = ref([])
+  const posicion = ref(0)
 
   function registrar(nuevoNombre) {
     nombre.value = nuevoNombre.trim()
@@ -23,7 +24,8 @@ export const useJugadorStore = defineStore('jugador', () => {
     nombre.value = ''
     numAciertos.value = 0
     listaAciertos.value = []
+    posicion.value = 0
   }
 
-  return { nombre, registrar, sumarAcierto, registrarRespuesta, reiniciar, listaAciertos, numAciertos }
+  return { nombre, registrar, sumarAcierto, registrarRespuesta, reiniciar, listaAciertos, numAciertos, posicion }
 })
