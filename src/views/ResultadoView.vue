@@ -91,7 +91,11 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
     <section class="bloque">
       <h2 class="etiqueta">Resumen de la partida</h2>
       <ol class="resumen">
-        <ResumenRespuesta numero="01" cancion="Someone Like You" artista="Adele" />
+        <ResumenRespuesta v-for="(respuesta, i) in jugador.listaAciertos" :numero="i+1"
+          :cancion="respuesta.nombre" :artista="respuesta.artistas" :resultado="respuesta.correcta ?
+          'acierto' : 'fallo'"/>
+
+<!--        <ResumenRespuesta numero="01" cancion="Someone Like You" artista="Adele" />
         <ResumenRespuesta numero="02" cancion="Bad Guy" artista="Billie Eilish" />
         <ResumenRespuesta numero="03" cancion="Rolling in the Deep" artista="Adele" resultado="fallo" />
         <ResumenRespuesta numero="04" cancion="Blinding Lights" artista="The Weeknd" />
@@ -101,6 +105,7 @@ const puntuacion = computed(() => VALOR_ACIERTO * jugador.numAciertos)
         <ResumenRespuesta numero="08" cancion="Despacito" artista="Luis Fonsi" resultado="fallo" />
         <ResumenRespuesta numero="09" cancion="Bohemian Rhapsody" artista="Queen" resultado="fallo" />
         <ResumenRespuesta numero="10" cancion="Flowers" artista="Miley Cyrus" />
+-->
       </ol>
     </section>
 
