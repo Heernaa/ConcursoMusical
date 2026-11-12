@@ -42,11 +42,12 @@
       - [x] Comprueba si la opcion seleccionada es la correcta
         - [x] Deshabilita el botón de comprobar si ya se ha hecho
     - [ ] Ver resultados --> Botón con redireccionamiento a vista de resultados, solo disponible tras confirmar la selección de la ultima canción
-  - [ ] Store --> Crear store con **Pinia** donde meter los datos de la partida
+  - [x] Store --> Crear store con **Pinia** donde meter los datos de la partida
+  - [x] Boton resultados --> Lleva a resultados, al terminar el juego
 - [ ] <Resultados />
   - [ ] Recolección de datos con el store de 'player'
-    - [ ] Aciertos
-    - [ ] Lista de aciertos y fallos --> Lista con canciiones y si esta ha sido acierto o fallo { "cancion": cancion, "acierto": true/false }
+    - [x] Aciertos
+    - [x] Lista de aciertos y fallos --> Lista con canciiones y si esta ha sido acierto o fallo { "cancion": cancion, "acierto": true/false }
     - [ ] Mejor racha --> Contar en la lista de aciertos y fallos, los aciertos consecutivos
 
 

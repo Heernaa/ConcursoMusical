@@ -105,8 +105,8 @@ watch(indice, () => {
   comprobado.value = false
 })
 
-watch(jugador.listaAciertos, () => {
-  console.log('listaAciertos:', jugador.listaAciertos)
+watch(jugador.listaAciertos, (value) => {
+  console.log('listaAciertos:', value)
   console.log('numAciertos', jugador.numAciertos)
 })
 
@@ -169,8 +169,11 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
       <p class="nota">+10 puntos si aciertas · sin penalización por fallo</p>
       <div class="botones">
         <SecondaryButton :disabled="indice >= 9 || !seleccionConfirmada" @click="indice++">Saltar</SecondaryButton>
-        <PrimaryButton :disabled="comprobado" @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar respuesta
+        <PrimaryButton v-if="indice < 9 || !comprobado" :disabled="comprobado"
+          @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
+          respuesta
         </PrimaryButton>
+        <PrimaryButton v-else @click="console.log('Hola')">Ver resultados</PrimaryButton>
       </div>
     </div>
   </main>
