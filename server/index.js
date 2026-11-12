@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const app = express()
+app.use(express.json())
 const port = 3000
 
 const RUTA = fileURLToPath(new URL('../src/data/ranking.json', import.meta.url))

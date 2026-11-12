@@ -109,6 +109,30 @@ const puntos = computed(() => jugador.numAciertos * PUNTOS_ACIERTO)
 const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
+async function guardarPuntuación() {
+  try {
+    const response = await fetch('/api/ranking', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        nombre: `${jugador.nombre}` ?? '',
+        aciertos: jugador.numAciertos,
+        tiempo: 90,
+        puntos: puntos.value
+      }
+)    })
+    if (!response.ok) {
+      throw new Error('Error de petición')
+    }
+    const data = await response.json()
+    console.log({entrada: data})
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 // TODO: solo plantilla. Todos los valores de esta vista están fijos (copiados de Figma);
 // sustituirlos por el estado de la partida (store de Pinia / Howler) al dinamizarla.
 </script>
@@ -156,7 +180,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
           @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
           respuesta
         </PrimaryButton>
-        <PrimaryButton v-else link-to="resultados">Ver resultados</PrimaryButton>
+        <PrimaryButton v-else link-to="resultados" @click="guardarPuntuación()">Ver resultados</PrimaryButton>
       </div>
     </div>
   </main>
