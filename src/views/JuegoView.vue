@@ -173,7 +173,7 @@ const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
           @click="confirmarSeleccion(), comprobarCorrecta(), jugador.registrarRespuesta(seleccionadaObject)">Confirmar
           respuesta
         </PrimaryButton>
-        <PrimaryButton v-else @click="console.log('Hola')">Ver resultados</PrimaryButton>
+        <PrimaryButton v-else link-to="resultados">Ver resultados</PrimaryButton>
       </div>
     </div>
   </main>
