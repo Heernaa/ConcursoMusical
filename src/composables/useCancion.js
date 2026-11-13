@@ -9,7 +9,7 @@ export default function useCancion(ruta) {
   const reproduciendo = ref(false)
   const progreso = ref(0)
   const errorAudio = ref(null)
-  let raf = null
+  const raf = null
 
 
   function bucle() {

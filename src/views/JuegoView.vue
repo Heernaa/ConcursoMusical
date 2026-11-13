@@ -8,7 +8,7 @@ import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
 import { onMounted, ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import useCancion from '@/composables/useCancion'
+import { Howl, Howler } from 'howler'
 
 const router = useRouter()
 
@@ -41,9 +41,7 @@ onMounted(async () => {
 
 const cancion = computed(() => canciones.value[indice.value])
 
-const ruta = computed(() => cancion.value?.src ?? '')
-const { reproduciendo, progreso, errorAudio, alternar, parar } = useCancion(ruta)
-
+// const rutaSonido = computed(() => cancion.value?.src ?? '')
 
 const opciones = computed(() => cancion.value?.opciones ?? [])
 
@@ -170,11 +168,10 @@ async function guardarPuntuación() {
       </div>
       <ReproductorFragmento
         class="reproductor"
-        :estado="reproduciendo ? 'reproduciendo' : 'listo'"
-        tiempo="0:02/0:05"
+        estado="reproduciendo"
+        tiempo="0:02 / 0:05"
         ayuda="Escuchando… ¡atento al estribillo!"
-        :progreso="progreso"
-        @alternar="alternar"
+        :progreso="40"
       />
     </section>
 
