@@ -52,5 +52,11 @@
     "aciertos": 3,
     "tiempo": 90,
     "puntos": 30
+  },
+  {
+    "nombre": "Pol Hernandez",
+    "aciertos": 10,
+    "tiempo": 90,
+    "puntos": 100
   }
 ]

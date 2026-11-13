@@ -8,6 +8,7 @@ import SecondaryButton from '@/components/buttons/SecondaryButton.vue'
 import { useJugadorStore } from '@/stores/jugador'
 import { onMounted, ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { Howl, Howler } from 'howler'
 
 const router = useRouter()
 
@@ -39,6 +40,8 @@ onMounted(async () => {
 })
 
 const cancion = computed(() => canciones.value[indice.value])
+
+// const rutaSonido = computed(() => cancion.value?.src ?? '')
 
 const opciones = computed(() => cancion.value?.opciones ?? [])
 
