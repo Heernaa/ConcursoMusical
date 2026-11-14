@@ -16,7 +16,11 @@ export default function useCancion(ruta) {
     const s = sonido.value
     if (!s) return
   // calcula sobre 100, el proges del so, en base als 5000 ms, utilitzant el metode 'seek' de howler, que retorna el punt de la canço en la que es troba el só
-    progreso.value = Math.min(100, ((s.seek() * 1000) / DURACION_MS) * 100)
+    // Con html5: true, seek() devuelve el Howl (no un número) mientras el audio no ha cargado
+    const posicion = s.seek()
+    if (typeof posicion === 'number') {
+      progreso.value = Math.min(100, ((posicion * 1000) / DURACION_MS) * 100)
+    }
   // Si el progrés supera el 100%, retorna parar(), que es una funció en la que s'atura el só
     if (progreso.value >= 100) return parar()
   // Si el progrés esta dins la finestra de 5000 ms, es fa la animación amb el bucle
@@ -48,9 +52,13 @@ export default function useCancion(ruta) {
 // En los diferentos eventos, se cambian los parametros para el renderizado del la vista
         onplay: () => {
           reproduciendo.value = true
+          // Evita dos bucles en paralelo si ya había uno en marcha
+          cancelAnimationFrame(raf)
           bucle()
         },
         onpause: () => {
+          // En pausa el progreso no avanza: se detiene el bucle hasta el siguiente play
+          cancelAnimationFrame(raf)
           reproduciendo.value = false
         },
         onstop: () => {
@@ -71,11 +79,13 @@ export default function useCancion(ruta) {
   function parar() {
     cancelAnimationFrame(raf)
     sonido.value?.stop()
+    // stop() devuelve el audio al inicio: se reinicia la barra para poder volver a escuchar los 5 s
+    progreso.value = 0
   }
 
 // Antes de desmontar el componente se limpian los datos, para no continuar con la reproduccion tras desmontar este
   onBeforeUnmount(limpiar)
 
 // Retorno de los parametros y funciones
-  return { reproduciendo, progreso, errorAudio, alternar, parar }
+  return { reproduciendo, progreso, errorAudio, alternar, parar, DURACION_MS }
 }

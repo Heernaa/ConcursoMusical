@@ -42,7 +42,14 @@ onMounted(async () => {
 const cancion = computed(() => canciones.value[indice.value])
 
 const ruta = computed(() => cancion.value?.src ?? '')
-const { reproduciendo, progreso, errorAudio, alternar, parar } = useCancion(ruta)
+const { reproduciendo, progreso, errorAudio, alternar, parar, DURACION_MS } = useCancion(ruta)
+
+// Texto "0:SS / 0:05" del reproductor, derivado del porcentaje de progreso
+const tiempo = computed(() => {
+  const total = DURACION_MS / 1000
+  const seg = Math.floor((progreso.value / 100) * total)
+  return `0:${String(seg).padStart(2, '0')} / 0:${String(total).padStart(2, '0')}`
+})
 
 
 const opciones = computed(() => cancion.value?.opciones ?? [])
@@ -117,6 +124,7 @@ const preguntaActual = computed(() => `Pregunta ${cancionActual.value}/10`)
 const porcentajeActual = computed(() => `${(indice.value / 10) * 100}%`)
 
 async function guardarPuntuación() {
+  parar()
   try {
     const response = await fetch('/api/ranking', {
       method: 'POST',
@@ -171,7 +179,7 @@ async function guardarPuntuación() {
       <ReproductorFragmento
         class="reproductor"
         :estado="reproduciendo ? 'reproduciendo' : 'listo'"
-        tiempo="0:02/0:05"
+        :tiempo="tiempo"
         ayuda="Escuchando… ¡atento al estribillo!"
         :progreso="progreso"
         @alternar="alternar"
