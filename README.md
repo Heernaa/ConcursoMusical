@@ -2,52 +2,53 @@
 
 > [!important]
 >
-> El propósito final de este repositorio es crear una SPA con VUE 3, usando librería de sonido de `Howler.js` para crear un concurso musical.
+> El propósito final de este repositorio es crear una SPA con VUE 3, usando la librería de sonido `Howler.js` para crear un concurso musical.
 
-## Stack 
+## Stack
 
 - VUE 3.5
 - HOWLER.JS
 - TAILWIND CSS
-- JSON --> Persistencia de datos
+- EXPRESS (API del ranking)
+- JSON --> Persistencia de datos (`src/data/ranking.json`)
 
-## Recommended IDE Setup
+## Arrancar con Docker (recomendado)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Requisito: tener instalado [Docker Desktop](https://www.docker.com/products/docker-desktop/) (incluye Docker Compose).
 
-## Recommended Browser Setup
+Desde la raíz del proyecto:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+```sh
+docker compose up --build
+```
 
-## Customize configuration
+Cuando termine de construir, abre <http://localhost:8080>.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Se levantan dos contenedores:
 
-## Project Setup
+| Servicio | Qué es                                                       | Puerto                |
+| -------- | ------------------------------------------------------------ | --------------------- |
+| `web`    | Build de Vue servido con nginx; redirige `/api/` al servidor | `8080`                |
+| `server` | API Express del ranking (`server/index.js`)                  | `3000` (solo interno) |
+
+El ranking se guarda en `src/data/ranking.json`, montado como volumen, así que las puntuaciones se conservan al parar los contenedores.
+
+Otros comandos útiles:
+
+```sh
+docker compose up -d --build   # arrancar en segundo plano
+docker compose logs -f         # ver los logs
+docker compose down            # parar y eliminar los contenedores
+```
+
+## Arrancar sin Docker
+
+Requisitos: Node `^22.18.0 || >=24.12.0` y [pnpm](https://pnpm.io/).
 
 ```sh
 pnpm install
+pnpm express   # API del ranking en http://localhost:3000
+pnpm dev       # en otra terminal: servidor de desarrollo Vite
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+Vite redirige las peticiones `/api` a `http://localhost:3000`, por eso hacen falta los dos procesos.
